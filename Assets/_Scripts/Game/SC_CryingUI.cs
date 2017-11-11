@@ -2,14 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CryingUIscript : MonoBehaviour {
-
-	GameObject baby;
-
-	// Use this for initialization
-	void Start () {
-		
-	}
+public class SC_CryingUI : MonoBehaviour {
+	public GameObject baby;
 	
 	// Update is called once per frame
 	void Update () {
