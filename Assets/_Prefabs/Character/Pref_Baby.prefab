@@ -59,7 +59,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 92a35fb5eb30be844b489b4307d7ebb6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -99,7 +99,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 116
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &114142958815095788
 MonoBehaviour:
@@ -114,14 +114,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cryDamagePerSecond: 1
   cryLoadingTimeInSecond: 4
-  flySpeed: 2
+  flySpeed: 5
   isAlive: 1
   isPreparingToCry: 0
   isCrying: 0
-  isFlying: 1
+  isFlying: 0
   target: {fileID: 0}
   m_cryingDurationInSecond: 0
-  m_timeBeforeStartCryingInSecond: 2
+  m_timeBeforeStartCryingInSecond: 4
 --- !u!135 &135570826075279928
 SphereCollider:
   m_ObjectHideFlags: 1
