@@ -4,14 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-<<<<<<< HEAD
+  - Undefined
   - Baby
   - Player1
   - Player2
-=======
-  - baby
-  - Bullet
->>>>>>> ade683744aafa9705314a723e381f4d90965469d
   layers:
   - Default
   - TransparentFX
