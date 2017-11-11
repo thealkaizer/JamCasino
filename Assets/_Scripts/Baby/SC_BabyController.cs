@@ -84,9 +84,11 @@ public class SC_BabyController : MonoBehaviour {
     // ------------------------------------------------------------------------
     // Move methods
     // ------------------------------------------------------------------------
-    public void SetTarget(GameObject target) {
+    public void FlyToTarget(GameObject target) {
         this.target = target;
         this.isFlying = true;
+        this.isPreparingToCry = false;
+        this.isCrying = false;
     }
 
     public void UnsetTarget() {

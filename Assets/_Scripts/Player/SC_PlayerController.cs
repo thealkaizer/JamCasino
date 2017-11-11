@@ -10,9 +10,15 @@ public class SC_PlayerController : MonoBehaviour {
     public GameObject player2; // Ref to the other player.
     public GameObject baby;
 
-    private bool isWalking;
+    public bool isWalking;
 
     private float m_effectiveSpeed;
+
+    private static int playerID = 0;
+    private string m_btn_fire1;
+    private string m_btn_vertical;
+    private string m_btn_horizontal;
+
 
     void Awake() {
         this.hasBaby = false;
@@ -20,15 +26,29 @@ public class SC_PlayerController : MonoBehaviour {
         this.m_effectiveSpeed = this.speedNormal;
     }
 
+    void Start() {
+        playerID++;
+        if(playerID % 2 == 1) {
+            this.m_btn_fire1        = "Fire1";
+            this.m_btn_horizontal   = "Horizontal";
+            this.m_btn_vertical     = "Vertical";
+        }
+        else {
+            this.m_btn_fire1        = "p2_Fire1";
+            this.m_btn_horizontal   = "p2_Horizontal";
+            this.m_btn_vertical     = "p2_Vertical";
+        }
+    }
+
     void Update() {
-        if (Input.GetButton("Fire1")) {
+        if (Input.GetButton(m_btn_fire1)) {
             this.TossBaby();
         }
     }
 	
 	void FixedUpdate() {
-        float horizontal    = Input.GetAxis("Horizontal");
-        float vertical      = Input.GetAxis("Vertical");
+        float horizontal    = Input.GetAxis(this.m_btn_horizontal);
+        float vertical      = Input.GetAxis(this.m_btn_vertical);
         this.HandleMovement(horizontal, vertical);
 	}
 
@@ -59,14 +79,12 @@ public class SC_PlayerController : MonoBehaviour {
             Debug.Log("PLayer " + GetInstanceID() + "toss the baby");
             this.hasBaby = false;
             SC_BabyController babyScript = this.baby.GetComponent<SC_BabyController>();
-            babyScript.SetTarget(this.player2);
-        }
-        else {
-            Debug.Log("PLayer " + GetInstanceID() + ", can't toss baby.");
+            babyScript.FlyToTarget(this.player2);
         }
     }
 
     private void catchBaby() {
+        // TODO: Play sound / animation
         this.hasBaby = true;
         SC_BabyController babyScript = this.baby.GetComponent<SC_BabyController>();
         babyScript.UnsetTarget();
@@ -75,7 +93,6 @@ public class SC_PlayerController : MonoBehaviour {
 
     public void OnTriggerEnter(Collider other) {
         if(other.tag == "Baby") {
-            Debug.Log("DSKLDJSKLDJKLSJDS");
             this.catchBaby();
         }
     }

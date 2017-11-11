@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 136863731033554772}
   m_Layer: 0
   m_Name: Pref_Player1
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -228,9 +228,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedNormal: 10
   speedBaby: 5
-  hasBaby: 1
+  hasBaby: 0
   player2: {fileID: 1210391691542364, guid: 50dbc0039cf439b4d907c6438b189186, type: 2}
   baby: {fileID: 0}
+  isWalking: 0
 --- !u!136 &136405169299978244
 CapsuleCollider:
   m_ObjectHideFlags: 1
