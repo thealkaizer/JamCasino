@@ -9,15 +9,15 @@ public class SC_BabyController : MonoBehaviour {
     // ------------------------------------------------------------------------
     public float cryDamagePerSecond;
     public float cryLoadingTimeInSecond;
-    public float flySpeed;
 
     public float jumpPower;
     public float jumpDuration;
+    public int jumpNumberOfJumps;
     
     public bool isAlive;
     public bool isPreparingToCry;
     public bool isCrying;
-    public bool isFlying; // If not flying, means holded by player
+    public bool isJumping; // If not flying, means holded by player
 
     public GameObject target;
     
@@ -48,13 +48,8 @@ public class SC_BabyController : MonoBehaviour {
 	}
 
     void FixedUpdate() {
-        if (this.HasTarget()) {
-            if (this.isFlying) {
-                //this.UpdateMovement();
-            }
-            else {
-                this.transform.position = this.target.transform.position;
-            }
+        if (this.HasTarget() && !this.isJumping) {
+            this.transform.position = this.target.transform.position;
         }
     }
     
@@ -84,10 +79,10 @@ public class SC_BabyController : MonoBehaviour {
     public void KillPoorBaby() {
         if (this.isAlive) {
             // TODO: Stop game + all crap
-            this.isAlive = false;
-            this.isPreparingToCry = false;
-            this.isCrying = false;
-            this.isFlying = false;
+            this.isAlive            = false;
+            this.isPreparingToCry   = false;
+            this.isCrying           = false;
+            this.isJumping          = false;
         }
     }
     
@@ -98,7 +93,7 @@ public class SC_BabyController : MonoBehaviour {
     public void FlyToTarget(GameObject target) {
         // TODO: animationm + sound for baby that start to fly
         this.target             = target;
-        this.isFlying           = true;
+        this.isJumping          = true;
         this.isPreparingToCry   = false;
         this.isCrying           = false;
         this.GetComponent<Rigidbody>().isKinematic = false;
@@ -107,28 +102,17 @@ public class SC_BabyController : MonoBehaviour {
 
     public void StickToTarget(GameObject target) {
         this.target             = target;
-        this.isFlying           = false;
+        this.isJumping          = false;
         this.isCrying           = false;
         this.StartPrepareToCry();
         this.GetComponent<Rigidbody>().isKinematic = true;
-
-    }
-
-    private void UpdateMovement() {
-        this.GetComponent<Rigidbody>().velocity = Vector3.zero;
-        Vector3 targetPosition = GameObject.FindGameObjectWithTag(this.target.tag).transform.position;
-        Vector3 dir = targetPosition - this.transform.position;
-        dir = Vector3.Normalize(dir);
-        Debug.DrawRay(this.transform.position, dir, Color.blue, 0.5f);
-        Debug.DrawLine(this.transform.position, targetPosition, Color.cyan);
-        this.transform.position = this.transform.position + (dir * flySpeed * Time.deltaTime);
     }
 
     private void ApplyJump() {
         this.GetComponent<Rigidbody>().velocity = Vector3.zero;
         Vector3 targetPosition = GameObject.FindGameObjectWithTag(this.target.tag).transform.position;
         Debug.DrawLine(this.transform.position, targetPosition, Color.cyan, 1);
-        this.transform.DOJump(targetPosition, 5, 1, jumpDuration);
+        this.transform.DOJump(targetPosition, jumpPower, jumpNumberOfJumps, jumpDuration);
     }
     
     
