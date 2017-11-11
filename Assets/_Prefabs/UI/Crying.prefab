@@ -52,6 +52,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4238924647589110}
   - component: {fileID: 95539674044961774}
+  - component: {fileID: 114153458307326312}
   m_Layer: 0
   m_Name: Crying
   m_TagString: Untagged
@@ -147,6 +148,18 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114153458307326312
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1670636523878550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5537a70aacfbb8c49b934cec1ecc9923, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baby: {fileID: 0}
 --- !u!212 &212078434283915384
 SpriteRenderer:
   m_ObjectHideFlags: 1
