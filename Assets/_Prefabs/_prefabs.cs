@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class _prefabs : MonoBehaviour {
 
+    public GameObject banane;
+
 	// Use this for initialization
 	void Start () {
 		
