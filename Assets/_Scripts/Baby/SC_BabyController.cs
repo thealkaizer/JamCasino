@@ -46,7 +46,6 @@ public class SC_BabyController : MonoBehaviour {
     void FixedUpdate() {
         if (this.HasTarget()) {
             if (this.isFlying) {
-                Debug.Log("IS FLYING");
                 this.UpdateMovement();
             }
             else {
@@ -104,16 +103,18 @@ public class SC_BabyController : MonoBehaviour {
     public void StickToTarget(GameObject target) {
         this.target             = target;
         this.isFlying           = false;
-        this.isPreparingToCry   = false;
         this.isCrying           = false;
-        this.GetComponent<Rigidbody>().isKinematic = true;
         this.StartPrepareToCry();
+        this.GetComponent<Rigidbody>().isKinematic = true;
     }
 
     private void UpdateMovement() {
-        Vector3 dir = this.target.transform.position - this.transform.position;
+        this.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        Vector3 targetPosition = GameObject.FindGameObjectWithTag(this.target.tag).transform.position;
+        Vector3 dir = targetPosition - this.transform.position;
         dir = Vector3.Normalize(dir);
         Debug.DrawRay(this.transform.position, dir, Color.blue, 0.5f);
+        Debug.DrawLine(this.transform.position, targetPosition, Color.cyan);
         this.transform.position = this.transform.position + (dir * flySpeed * Time.deltaTime);
     }
     

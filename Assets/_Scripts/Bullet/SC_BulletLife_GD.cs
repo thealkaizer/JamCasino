@@ -22,10 +22,10 @@ public class SC_BulletLife_GD : MonoBehaviour
     {
         while (time > 0)
         {
-            Debug.Log(time--);
+            //Debug.Log(time--);
             yield return new WaitForSeconds(1);
         }
-        Debug.Log("Countdown Complete!");
+        //Debug.Log("Countdown Complete!");
         Destroy(gameObject);
     }
 

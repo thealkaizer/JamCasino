@@ -73,7 +73,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4797206637905052}
   m_Layer: 0
-  m_Name: BabyBucket
+  m_Name: BabyBucketP2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -240,10 +240,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedNormal: 10
-  speedBaby: 5
+  speedBaby: 2
   hasBaby: 0
   player2: {fileID: 1636703247805810, guid: f93d266f6ff2fa14b8e3c3c1a057b731, type: 2}
-  baby: {fileID: 1109295908472554, guid: d1550b80a51a18d43a8cc22e63279349, type: 2}
+  baby: {fileID: 0}
   isWalking: 0
 --- !u!136 &136142647884522164
 CapsuleCollider:

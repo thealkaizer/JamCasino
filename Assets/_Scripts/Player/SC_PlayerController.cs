@@ -45,7 +45,7 @@ public class SC_PlayerController : MonoBehaviour {
     }
 
     void Update() {
-        if (Input.GetButton(m_btn_fire1)) {
+        if (Input.GetButton(this.m_btn_fire1)) {
             this.TossBaby();
         }
     }
