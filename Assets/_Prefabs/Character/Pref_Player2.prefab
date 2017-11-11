@@ -110,7 +110,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4035583520692458
 Transform:
   m_ObjectHideFlags: 1
@@ -304,6 +304,7 @@ MonoBehaviour:
   hasBaby: 0
   player2: {fileID: 1636703247805810, guid: f93d266f6ff2fa14b8e3c3c1a057b731, type: 2}
   baby: {fileID: 0}
+  groundRing: {fileID: 1984711260166440}
   isWalking: 0
 --- !u!114 &114925579697116492
 MonoBehaviour:

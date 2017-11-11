@@ -151,6 +151,21 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 54841276442898920, guid: d1550b80a51a18d43a8cc22e63279349,
+        type: 2}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 54841276442898920, guid: d1550b80a51a18d43a8cc22e63279349,
+        type: 2}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114487233941971500, guid: d1550b80a51a18d43a8cc22e63279349,
+        type: 2}
+      propertyPath: jumpSpeed
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d1550b80a51a18d43a8cc22e63279349, type: 2}
   m_IsPrefabParent: 0
@@ -203,15 +218,6 @@ Prefab:
       propertyPath: baby
       value: 
       objectReference: {fileID: 1620148483}
-    - target: {fileID: 1984711260166440, guid: 50dbc0039cf439b4d907c6438b189186, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114279769980307428, guid: 50dbc0039cf439b4d907c6438b189186,
-        type: 2}
-      propertyPath: groundRing
-      value: 
-      objectReference: {fileID: 1837851110}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 50dbc0039cf439b4d907c6438b189186, type: 2}
   m_IsPrefabParent: 0
@@ -469,16 +475,6 @@ GameObject:
   m_PrefabParentObject: {fileID: 1467304676493776, guid: d1550b80a51a18d43a8cc22e63279349,
     type: 2}
   m_PrefabInternal: {fileID: 69976644}
---- !u!1 &1837736482 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1073388670067702, guid: f93d266f6ff2fa14b8e3c3c1a057b731,
-    type: 2}
-  m_PrefabInternal: {fileID: 2100198611}
---- !u!1 &1837851110 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1984711260166440, guid: 50dbc0039cf439b4d907c6438b189186,
-    type: 2}
-  m_PrefabInternal: {fileID: 329452997}
 --- !u!1001 &2100198611
 Prefab:
   m_ObjectHideFlags: 0
@@ -528,15 +524,6 @@ Prefab:
       propertyPath: baby
       value: 
       objectReference: {fileID: 1620148483}
-    - target: {fileID: 1073388670067702, guid: f93d266f6ff2fa14b8e3c3c1a057b731, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114941119647730208, guid: f93d266f6ff2fa14b8e3c3c1a057b731,
-        type: 2}
-      propertyPath: groundRing
-      value: 
-      objectReference: {fileID: 1837736482}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f93d266f6ff2fa14b8e3c3c1a057b731, type: 2}
   m_IsPrefabParent: 0

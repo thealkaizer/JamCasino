@@ -26,7 +26,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1382700381215430
 GameObject:
   m_ObjectHideFlags: 0
@@ -316,6 +316,7 @@ MonoBehaviour:
   hasBaby: 0
   player2: {fileID: 1210391691542364, guid: 50dbc0039cf439b4d907c6438b189186, type: 2}
   baby: {fileID: 0}
+  groundRing: {fileID: 1073388670067702}
   isWalking: 0
 --- !u!136 &136405169299978244
 CapsuleCollider:
