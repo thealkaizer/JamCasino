@@ -13,7 +13,7 @@ public class SC_BulletPattern1Creation_GD : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        StartCoroutine("Spawner", delay);
+        once = false;
     }
 
     private IEnumerator Spawner(int time)
@@ -25,6 +25,7 @@ public class SC_BulletPattern1Creation_GD : MonoBehaviour {
         }
         Debug.Log("reset");
         bulletPattern1Slot.transform.position = this.transform.position;
+        bulletPattern1Slot.transform.rotation = this.transform.rotation;
         Instantiate(bulletPattern1Slot);
         once = false;
     }
