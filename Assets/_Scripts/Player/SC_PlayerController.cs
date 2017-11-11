@@ -13,6 +13,7 @@ public class SC_PlayerController : MonoBehaviour {
     public GameObject player2; // Ref to the other player.
     public GameObject baby;
     public GameObject groundRing;
+    public GameObject babyBucket;
 
     public bool isWalking;
 
@@ -115,6 +116,12 @@ public class SC_PlayerController : MonoBehaviour {
     }
 
     public void OnTriggerEnter(Collider other) {
+        if(other.tag == "Baby") {
+            this.catchBaby();
+        }
+    }
+
+    public void OnTriggerStay(Collider other) {
         if(other.tag == "Baby") {
             this.catchBaby();
         }

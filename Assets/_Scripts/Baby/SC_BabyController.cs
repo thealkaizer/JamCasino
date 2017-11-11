@@ -47,7 +47,10 @@ public class SC_BabyController : MonoBehaviour {
 
     void FixedUpdate() {
         if (this.HasTarget() && !this.isJumping) {
-            this.transform.position = this.target.transform.position;
+            Transform babyBucket = this.target.GetComponent<SC_PlayerController>().babyBucket.transform;
+            this.transform.position = babyBucket.position;
+            this.transform.rotation = Quaternion.LookRotation(babyBucket.forward, Vector3.up);
+            //this.transform.LookAt(babyBucket.rotation);
         }
         else if(this.isJumping) {
             this.UpdateMovement();
@@ -98,6 +101,7 @@ public class SC_BabyController : MonoBehaviour {
         this.isPreparingToCry   = false;
         this.isCrying           = false;
         this.GetComponent<Rigidbody>().isKinematic = false;
+        this.GetComponent<Rigidbody>().angularVelocity = new Vector3(5,5,5);
     }
 
     public void StickToTarget(GameObject target) {
