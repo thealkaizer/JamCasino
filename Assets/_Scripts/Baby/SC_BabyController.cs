@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class SC_BabyController : MonoBehaviour {
     // ------------------------------------------------------------------------
@@ -9,6 +10,9 @@ public class SC_BabyController : MonoBehaviour {
     public float cryDamagePerSecond;
     public float cryLoadingTimeInSecond;
     public float flySpeed;
+
+    public float jumpPower;
+    public float jumpDuration;
     
     public bool isAlive;
     public bool isPreparingToCry;
@@ -46,7 +50,7 @@ public class SC_BabyController : MonoBehaviour {
     void FixedUpdate() {
         if (this.HasTarget()) {
             if (this.isFlying) {
-                this.UpdateMovement();
+                //this.UpdateMovement();
             }
             else {
                 this.transform.position = this.target.transform.position;
@@ -98,6 +102,7 @@ public class SC_BabyController : MonoBehaviour {
         this.isPreparingToCry   = false;
         this.isCrying           = false;
         this.GetComponent<Rigidbody>().isKinematic = false;
+        this.ApplyJump();
     }
 
     public void StickToTarget(GameObject target) {
@@ -106,6 +111,7 @@ public class SC_BabyController : MonoBehaviour {
         this.isCrying           = false;
         this.StartPrepareToCry();
         this.GetComponent<Rigidbody>().isKinematic = true;
+
     }
 
     private void UpdateMovement() {
@@ -116,6 +122,13 @@ public class SC_BabyController : MonoBehaviour {
         Debug.DrawRay(this.transform.position, dir, Color.blue, 0.5f);
         Debug.DrawLine(this.transform.position, targetPosition, Color.cyan);
         this.transform.position = this.transform.position + (dir * flySpeed * Time.deltaTime);
+    }
+
+    private void ApplyJump() {
+        this.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        Vector3 targetPosition = GameObject.FindGameObjectWithTag(this.target.tag).transform.position;
+        Debug.DrawLine(this.transform.position, targetPosition, Color.cyan, 1);
+        this.transform.DOJump(targetPosition, 5, 1, jumpDuration);
     }
     
     

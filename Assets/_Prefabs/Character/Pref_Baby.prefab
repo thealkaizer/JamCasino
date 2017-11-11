@@ -115,6 +115,8 @@ MonoBehaviour:
   cryDamagePerSecond: 1
   cryLoadingTimeInSecond: 2
   flySpeed: 6
+  jumpPower: 1
+  jumpDuration: 0.5
   isAlive: 1
   isPreparingToCry: 0
   isCrying: 0
