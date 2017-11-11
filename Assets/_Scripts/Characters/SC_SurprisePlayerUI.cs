@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class surpriseScript : MonoBehaviour {
+public class SC_SurprisePlayerUI : MonoBehaviour {
 
 
 	public GameObject emote;
