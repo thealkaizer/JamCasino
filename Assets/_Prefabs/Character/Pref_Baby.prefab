@@ -114,11 +114,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cryDamagePerSecond: 1
   cryLoadingTimeInSecond: 2
-  flySpeed: 6
+  jumpPower: 1
+  jumpDuration: 0.5
+  jumpNumberOfJumps: 0
   isAlive: 1
   isPreparingToCry: 0
   isCrying: 0
-  isFlying: 0
+  isJumping: 0
   target: {fileID: 0}
   m_cryingDurationInSecond: 0
   m_timeBeforeStartCryingInSecond: 0
