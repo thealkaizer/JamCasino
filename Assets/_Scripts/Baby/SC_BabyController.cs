@@ -10,9 +10,7 @@ public class SC_BabyController : MonoBehaviour {
     public float cryDamagePerSecond;
     public float cryLoadingTimeInSecond;
 
-    public float jumpPower;
-    public float jumpDuration;
-    public int jumpNumberOfJumps;
+    public float jumpSpeed;
     
     public bool isAlive;
     public bool isPreparingToCry;
@@ -49,7 +47,13 @@ public class SC_BabyController : MonoBehaviour {
 
     void FixedUpdate() {
         if (this.HasTarget() && !this.isJumping) {
-            this.transform.position = this.target.transform.position;
+            Transform babyBucket = this.target.GetComponent<SC_PlayerController>().babyBucket.transform;
+            this.transform.position = babyBucket.position;
+            this.transform.rotation = Quaternion.LookRotation(babyBucket.forward, Vector3.up);
+            //this.transform.LookAt(babyBucket.rotation);
+        }
+        else if(this.isJumping) {
+            this.UpdateMovement();
         }
     }
     
@@ -97,7 +101,6 @@ public class SC_BabyController : MonoBehaviour {
         this.isPreparingToCry   = false;
         this.isCrying           = false;
         this.GetComponent<Rigidbody>().isKinematic = false;
-        this.ApplyJump();
     }
 
     public void StickToTarget(GameObject target) {
@@ -108,11 +111,14 @@ public class SC_BabyController : MonoBehaviour {
         this.GetComponent<Rigidbody>().isKinematic = true;
     }
 
-    private void ApplyJump() {
+    private void UpdateMovement() {
         this.GetComponent<Rigidbody>().velocity = Vector3.zero;
         Vector3 targetPosition = GameObject.FindGameObjectWithTag(this.target.tag).transform.position;
-        Debug.DrawLine(this.transform.position, targetPosition, Color.cyan, 1);
-        this.transform.DOJump(targetPosition, jumpPower, jumpNumberOfJumps, jumpDuration);
+        Vector3 dir = targetPosition - this.transform.position;
+        dir = Vector3.Normalize(dir);
+        Debug.DrawRay(this.transform.position, dir, Color.blue, 0.5f);
+        Debug.DrawLine(this.transform.position, targetPosition, Color.cyan);
+        this.transform.position = this.transform.position + (dir * jumpSpeed * Time.deltaTime);
     }
     
     
