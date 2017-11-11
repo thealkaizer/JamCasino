@@ -58,7 +58,8 @@ public class SC_PlayerController : MonoBehaviour {
             // TODO SOUND: Play sound
             Debug.Log("PLayer " + GetInstanceID() + "toss the baby");
             this.hasBaby = false;
-
+            SC_BabyController babyScript = this.baby.GetComponent<SC_BabyController>();
+            babyScript.SetTarget(this.player2);
         }
         else {
             Debug.Log("PLayer " + GetInstanceID() + ", can't toss baby.");
@@ -67,5 +68,15 @@ public class SC_PlayerController : MonoBehaviour {
 
     private void catchBaby() {
         this.hasBaby = true;
+        SC_BabyController babyScript = this.baby.GetComponent<SC_BabyController>();
+        babyScript.UnsetTarget();
+        babyScript.StartPrepareToCry();
+    }
+
+    public void OnTriggerEnter(Collider other) {
+        if(other.tag == "Baby") {
+            Debug.Log("DSKLDJSKLDJKLSJDS");
+            this.catchBaby();
+        }
     }
 }

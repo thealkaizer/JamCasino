@@ -43,7 +43,6 @@ public class SC_BabyController : MonoBehaviour {
     void FixedUpdate() {
         if (this.hasTarget()) {
             // TODO Update movement
-            Debug.Log("Baby moves toward target");
             this.updateMovement();
         }
     }
@@ -52,7 +51,7 @@ public class SC_BabyController : MonoBehaviour {
     // ------------------------------------------------------------------------
     // Crying methods
     // ------------------------------------------------------------------------
-    public void PrepareToCry() {
+    public void StartPrepareToCry() {
         if (!this.isCrying) {
             // TODO: Add feedback! (Sound, anim etc...)
             Debug.Log("Baby prepare to cry...");

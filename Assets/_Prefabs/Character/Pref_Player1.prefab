@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 4642791832189952}
   - component: {fileID: 114941119647730208}
   - component: {fileID: 54220607726199504}
+  - component: {fileID: 136863731033554772}
   m_Layer: 0
   m_Name: Pref_Player1
   m_TagString: Untagged
@@ -241,5 +242,18 @@ CapsuleCollider:
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!136 &136863731033554772
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1636703247805810}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 1
+  m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
