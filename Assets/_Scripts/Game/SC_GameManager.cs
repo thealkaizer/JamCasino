@@ -10,10 +10,12 @@ public class SC_GameManager : MonoBehaviour {
 	void Update () {
 		if(!this.babyController.isAlive) {
             Debug.Log("GameOver: Baby just die!");
+            Time.timeScale = 0.0f;
             // TODO: Game Over right Now!
         }
         else if(!this.kingController.isAlive) {
             Debug.Log("GG Fucker!!");
+            Time.timeScale = 0.0f;
         }
 
         if(this.babyController.isCrying) {

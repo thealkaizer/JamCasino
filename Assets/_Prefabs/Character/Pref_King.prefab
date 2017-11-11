@@ -99,4 +99,3 @@ MonoBehaviour:
   currentHP: 0
   healthBarScript: {fileID: 0}
   death: {fileID: 2100000, guid: 3fba370165761e04bac4a68c0b23c458, type: 2}
-  rend: {fileID: 0}
