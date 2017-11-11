@@ -151,6 +151,21 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 54841276442898920, guid: d1550b80a51a18d43a8cc22e63279349,
+        type: 2}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 54841276442898920, guid: d1550b80a51a18d43a8cc22e63279349,
+        type: 2}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114487233941971500, guid: d1550b80a51a18d43a8cc22e63279349,
+        type: 2}
+      propertyPath: jumpSpeed
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d1550b80a51a18d43a8cc22e63279349, type: 2}
   m_IsPrefabParent: 0
