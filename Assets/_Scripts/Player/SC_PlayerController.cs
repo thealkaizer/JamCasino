@@ -12,6 +12,7 @@ public class SC_PlayerController : MonoBehaviour {
 
     public GameObject player2; // Ref to the other player.
     public GameObject baby;
+    public GameObject groundRing;
 
     public bool isWalking;
 
@@ -45,7 +46,7 @@ public class SC_PlayerController : MonoBehaviour {
     }
 
     void Update() {
-        if (Input.GetButton(m_btn_fire1)) {
+        if (Input.GetButton(this.m_btn_fire1)) {
             this.TossBaby();
         }
     }
@@ -90,6 +91,7 @@ public class SC_PlayerController : MonoBehaviour {
             // TODO SOUND: Play sound
             Debug.Log("PLayer " + this.gameObject.tag + " toss the baby");
             this.hasBaby = false;
+            this.groundRing.SetActive(false);
             SC_BabyController babyScript = this.baby.GetComponent<SC_BabyController>();
             babyScript.FlyToTarget(this.player2);
         }
@@ -102,6 +104,7 @@ public class SC_PlayerController : MonoBehaviour {
             if(this.CanCatchBaby(babyScript)) {
                 Debug.Log("Player " + this.gameObject.tag + " catch baby");
                 this.hasBaby = true;
+                this.groundRing.SetActive(true);
                 babyScript.StickToTarget(this.gameObject);
             }
         }
