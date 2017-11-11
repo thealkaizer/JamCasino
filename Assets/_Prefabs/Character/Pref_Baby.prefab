@@ -23,8 +23,8 @@ GameObject:
   - component: {fileID: 135957434620754316}
   - component: {fileID: 23394096772128710}
   - component: {fileID: 135955855030182596}
-  - component: {fileID: 54611312284515564}
   - component: {fileID: 114487233941971500}
+  - component: {fileID: 54841276442898920}
   m_Layer: 0
   m_Name: Pref_Baby
   m_TagString: Baby
@@ -86,7 +86,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1467304676493776}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!54 &54611312284515564
+--- !u!54 &54841276442898920
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -96,7 +96,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0

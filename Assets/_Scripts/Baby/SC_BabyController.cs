@@ -51,6 +51,8 @@ public class SC_BabyController : MonoBehaviour {
         if (this.HasTarget() && !this.isJumping) {
             this.transform.position = this.target.transform.position;
         }
+        else if(this.isJumping) {
+        }
     }
     
     
