@@ -101,6 +101,7 @@ public class SC_BabyController : MonoBehaviour {
         this.isPreparingToCry   = false;
         this.isCrying           = false;
         this.GetComponent<Rigidbody>().isKinematic = false;
+        this.GetComponent<Rigidbody>().angularVelocity = new Vector3(5,5,5);
     }
 
     public void StickToTarget(GameObject target) {
