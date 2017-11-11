@@ -53,3 +53,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 246
   isAlive: 0
+  currentHP: 0
+  healthBarScript: {fileID: 0}

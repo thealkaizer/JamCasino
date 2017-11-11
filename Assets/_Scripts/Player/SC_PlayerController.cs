@@ -10,10 +10,13 @@ public class SC_PlayerController : MonoBehaviour {
     public float speedBaby;
     public bool hasBaby;
 
+    public Transform emotepoint;
+
     public GameObject player2; // Ref to the other player.
     public GameObject baby;
     public GameObject groundRing;
     public GameObject babyBucket;
+    public GameObject surprise;
 
     public bool isWalking;
 
@@ -88,6 +91,8 @@ public class SC_PlayerController : MonoBehaviour {
     // ------------------------------------------------------------------------
     private void TossBaby() {
         if(this.hasBaby) {
+            GameObject emote = Instantiate(surprise, emotepoint.position, Quaternion.identity);
+            emote.transform.SetParent(emotepoint);
             // TODO ANIMATION: Play animation
             // TODO SOUND: Play sound
             Debug.Log("PLayer " + this.gameObject.tag + " toss the baby");
@@ -103,6 +108,8 @@ public class SC_PlayerController : MonoBehaviour {
         if (!this.hasBaby) {
             SC_BabyController babyScript = this.baby.GetComponent<SC_BabyController>();
             if(this.CanCatchBaby(babyScript)) {
+                GameObject emote = Instantiate(surprise, emotepoint.position, Quaternion.identity);
+                emote.transform.SetParent(emotepoint);
                 Debug.Log("Player " + this.gameObject.tag + " catch baby");
                 this.hasBaby = true;
                 this.groundRing.SetActive(true);

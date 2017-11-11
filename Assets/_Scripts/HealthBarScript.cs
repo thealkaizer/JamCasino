@@ -7,7 +7,7 @@ public class HealthBarScript : MonoBehaviour {
 
 	public Image bar;
 
-	float health;
+	public float health;
 
 	// Use this for initialization
 	void Start () {

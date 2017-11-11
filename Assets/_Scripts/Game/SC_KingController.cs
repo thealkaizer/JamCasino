@@ -6,6 +6,7 @@ public class SC_KingController : MonoBehaviour {
     public float maxHP;
     public bool isAlive;
     public float currentHP;
+    public HealthBarScript healthBarScript;
 
 	// Use this for initialization
 	void Start () {
@@ -16,6 +17,7 @@ public class SC_KingController : MonoBehaviour {
     public void takeDamage(float dammageValue) {
         this.currentHP -= dammageValue;
         this.currentHP = Mathf.Clamp(this.currentHP, 0, this.maxHP);
+        healthBarScript.health = currentHP;
         if(this.currentHP <= 0f) {
             this.isAlive = false;
         }

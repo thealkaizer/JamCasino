@@ -197,14 +197,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d716873f32b6a246bd04cd39750d70a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cryDamagePerSecond: 1
+  cryDamagePerSecond: 2
   cryLoadingTimeInSecond: 2
-  jumpSpeed: 10
+  jumpSpeed: 12
   isAlive: 1
   isPreparingToCry: 0
   isCrying: 0
   isJumping: 0
   target: {fileID: 0}
+  cryingAnim: {fileID: 0}
   m_cryingDurationInSecond: 0
   m_timeBeforeStartCryingInSecond: 0
 --- !u!135 &135955855030182596

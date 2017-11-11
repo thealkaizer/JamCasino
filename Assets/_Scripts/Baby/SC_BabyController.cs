@@ -4,6 +4,10 @@ using UnityEngine;
 using DG.Tweening;
 
 public class SC_BabyController : MonoBehaviour {
+
+    //cryingAnim.SetInteger("crypower", X);
+
+
     // ------------------------------------------------------------------------
     // Attributes (Note: all public for debug purpose)
     // ------------------------------------------------------------------------
@@ -18,6 +22,8 @@ public class SC_BabyController : MonoBehaviour {
     public bool isJumping; // If not flying, means holded by player
 
     public GameObject target;
+    
+    public Animator cryingAnim;
     
     public float m_cryingDurationInSecond; //Time in second since baby started crying.
     public float m_timeBeforeStartCryingInSecond;
