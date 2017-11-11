@@ -33,8 +33,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1989482310630652}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.77, y: 1.03, z: 7.98}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -3.23, y: 1.03, z: 7.98}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -54,5 +54,5 @@ MonoBehaviour:
   bulletPattern1Slot: {fileID: 1029689094132714, guid: 55b4c794992214444aa46eb6c68a3fe4,
     type: 2}
   once: 0
-  delay: 6
+  delay: 4.5
   delayPermanent: 6

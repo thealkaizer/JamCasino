@@ -6,8 +6,8 @@ public class SC_BulletPattern1Creation_GD : MonoBehaviour {
 
         public GameObject bulletPattern1Slot;
         public bool once = false;
-    public int delay;
-        public int delayPermanent;
+        public float delay;
+        public float delayPermanent;
 
 
 
@@ -24,6 +24,12 @@ public class SC_BulletPattern1Creation_GD : MonoBehaviour {
             yield return new WaitForSeconds(1);
         }
         Debug.Log("reset");
+
+        float xp = Random.Range(-3f, 3f);
+        float yp = 0f;
+        float zp = -1f;
+        transform.localPosition = new Vector3(xp, yp, zp);
+
         bulletPattern1Slot.transform.position = this.transform.position;
         bulletPattern1Slot.transform.rotation = this.transform.rotation;
         Instantiate(bulletPattern1Slot);
