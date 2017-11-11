@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class _prefabs : MonoBehaviour {
 
+	public GameObject pomme;
+
 	// Use this for initialization
 	void Start () {
 		
