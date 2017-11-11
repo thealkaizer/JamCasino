@@ -24,6 +24,9 @@ public class SC_BabyController : MonoBehaviour {
     // ------------------------------------------------------------------------
     // Unity methods
     // ------------------------------------------------------------------------
+    void Awake() {
+        this.target = null;
+    }
 	
 	// Update is called once per frame
 	void Update() {
@@ -41,9 +44,14 @@ public class SC_BabyController : MonoBehaviour {
 	}
 
     void FixedUpdate() {
-        if (this.hasTarget()) {
-            // TODO Update movement
-            this.updateMovement();
+        if (this.HasTarget()) {
+            if (this.isFlying) {
+                Debug.Log("IS FLYING");
+                this.UpdateMovement();
+            }
+            else {
+                this.transform.position = this.target.transform.position;
+            }
         }
     }
     
@@ -85,29 +93,35 @@ public class SC_BabyController : MonoBehaviour {
     // Move methods
     // ------------------------------------------------------------------------
     public void FlyToTarget(GameObject target) {
-        this.target = target;
-        this.isFlying = true;
-        this.isPreparingToCry = false;
-        this.isCrying = false;
+        // TODO: animationm + sound for baby that start to fly
+        this.target             = target;
+        this.isFlying           = true;
+        this.isPreparingToCry   = false;
+        this.isCrying           = false;
+        this.GetComponent<Rigidbody>().isKinematic = false;
     }
 
-    public void UnsetTarget() {
-        // Weird, but this is the internal way to say there is no more target.
-        this.isFlying = false;
+    public void StickToTarget(GameObject target) {
+        this.target             = target;
+        this.isFlying           = false;
+        this.isPreparingToCry   = false;
+        this.isCrying           = false;
+        this.GetComponent<Rigidbody>().isKinematic = true;
+        this.StartPrepareToCry();
     }
 
-    private void updateMovement() {
+    private void UpdateMovement() {
         Vector3 dir = this.target.transform.position - this.transform.position;
         dir = Vector3.Normalize(dir);
         Debug.DrawRay(this.transform.position, dir, Color.blue, 0.5f);
-        this.transform.position = this.transform.position + dir * flySpeed * Time.deltaTime;
+        this.transform.position = this.transform.position + (dir * flySpeed * Time.deltaTime);
     }
     
     
     // ------------------------------------------------------------------------
     // Getter / Setter
     // ------------------------------------------------------------------------
-    public bool hasTarget() {
-        return this.isFlying;
+    public bool HasTarget() {
+        return this.target != null;
     }
 }

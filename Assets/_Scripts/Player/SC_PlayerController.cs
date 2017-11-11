@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SC_PlayerController : MonoBehaviour {
+    // ------------------------------------------------------------------------
+    // Attributes (Note: all public for debug purpose)
+    // ------------------------------------------------------------------------
     public float speedNormal;
     public float speedBaby;
     public bool hasBaby;
@@ -13,13 +16,15 @@ public class SC_PlayerController : MonoBehaviour {
     public bool isWalking;
 
     private float m_effectiveSpeed;
-
-    private static int playerID = 0;
+    
     private string m_btn_fire1;
     private string m_btn_vertical;
     private string m_btn_horizontal;
 
-
+    
+    // ------------------------------------------------------------------------
+    // Unity Methods
+    // ------------------------------------------------------------------------
     void Awake() {
         this.hasBaby = false;
         this.isWalking = false;
@@ -27,8 +32,7 @@ public class SC_PlayerController : MonoBehaviour {
     }
 
     void Start() {
-        playerID++;
-        if(playerID % 2 == 1) {
+        if(this.gameObject.CompareTag("Player1")) {
             this.m_btn_fire1        = "Fire1";
             this.m_btn_horizontal   = "Horizontal";
             this.m_btn_vertical     = "Vertical";
@@ -52,6 +56,10 @@ public class SC_PlayerController : MonoBehaviour {
         this.HandleMovement(horizontal, vertical);
 	}
 
+    
+    // ------------------------------------------------------------------------
+    // Move Methods
+    // ------------------------------------------------------------------------
     private void HandleMovement(float horizontal, float vertical) {
         this.isWalking = false;
 
@@ -72,11 +80,15 @@ public class SC_PlayerController : MonoBehaviour {
         transform.rotation = Quaternion.Euler(new Vector3(0f, angle, 0f));
     }
 
+    
+    // ------------------------------------------------------------------------
+    // Baby Methods
+    // ------------------------------------------------------------------------
     private void TossBaby() {
         if(this.hasBaby) {
             // TODO ANIMATION: Play animation
             // TODO SOUND: Play sound
-            Debug.Log("PLayer " + GetInstanceID() + "toss the baby");
+            Debug.Log("PLayer " + this.gameObject.tag + " toss the baby");
             this.hasBaby = false;
             SC_BabyController babyScript = this.baby.GetComponent<SC_BabyController>();
             babyScript.FlyToTarget(this.player2);
@@ -85,10 +97,18 @@ public class SC_PlayerController : MonoBehaviour {
 
     private void catchBaby() {
         // TODO: Play sound / animation
-        this.hasBaby = true;
-        SC_BabyController babyScript = this.baby.GetComponent<SC_BabyController>();
-        babyScript.UnsetTarget();
-        babyScript.StartPrepareToCry();
+        if (!this.hasBaby) {
+            SC_BabyController babyScript = this.baby.GetComponent<SC_BabyController>();
+            if(this.CanCatchBaby(babyScript)) {
+                Debug.Log("Player " + this.gameObject.tag + " catch baby");
+                this.hasBaby = true;
+                babyScript.StickToTarget(this.gameObject);
+            }
+        }
+    }
+
+    private bool CanCatchBaby(SC_BabyController baby) {
+        return !baby.HasTarget() || this.gameObject.CompareTag(baby.target.tag);
     }
 
     public void OnTriggerEnter(Collider other) {
