@@ -34,7 +34,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1530711551999852}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.44965363, y: 0.64, z: -0.00859642}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -53,8 +53,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   babyController: {fileID: 0}
   kingController: {fileID: 0}
-  bulletPhase1: {fileID: 0}
+  bulletPhase1Manager: {fileID: 0}
+  meteoraPhase2Manager: {fileID: 0}
   phase1DurationInSecond: 15
   phase2DurationInSecond: 10
+  isVictory: 0
+  isGameOver: 0
   m_currentPhase: 0
   m_lastPhase: 0

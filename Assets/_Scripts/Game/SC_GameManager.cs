@@ -8,10 +8,14 @@ public class SC_GameManager : MonoBehaviour {
     // ------------------------------------------------------------------------
     public SC_BabyController babyController;
     public SC_KingController kingController;
-    public SC_BulletPattern1Creation_GD bulletPhase1;
+    public SC_BulletPattern1Creation_GD bulletPhase1Manager;
+    public SC_MeteoraPoper meteoraPhase2Manager;
 
     public float phase1DurationInSecond;
     public float phase2DurationInSecond;
+
+    public bool isVictory;
+    public bool isGameOver;
     
     public int m_currentPhase;
     public int m_lastPhase;
@@ -23,6 +27,8 @@ public class SC_GameManager : MonoBehaviour {
     public void Start() {
         this.m_currentPhase = 1;
         this.m_lastPhase = 1;
+        this.isVictory = false;
+        this.isGameOver = false;
     }
     
 
@@ -31,11 +37,13 @@ public class SC_GameManager : MonoBehaviour {
 		if(!this.babyController.isAlive) {
             Debug.Log("GameOver: Baby just die! You suck!!");
             Time.timeScale = 0.0f;
+            this.isGameOver = true;
             // TODO: Call Game Over right Now!
         }
         else if(!this.kingController.isAlive) {
             Debug.Log("GG Fucker!!");
             Time.timeScale = 0.0f;
+            this.isVictory = true;
             // TODO: Call GG panel Right Now!
         }
 
@@ -74,12 +82,14 @@ public class SC_GameManager : MonoBehaviour {
     private void startPhase1() {
         // TODO: Play event (Back to phase 1)
         Debug.Log("Start phase 1");
-        this.bulletPhase1.canPlay = true;
+        this.bulletPhase1Manager.canPlay = true;
+        this.meteoraPhase2Manager.isRunning = false;
     }
 
     private void startPhase2() {
         // TODO: Play event cuz we just entered phase 2!!
         Debug.Log("Start phase 2");
-        this.bulletPhase1.canPlay = false;
+        this.bulletPhase1Manager.canPlay = false;
+        this.meteoraPhase2Manager.isRunning = true;
     }
 }

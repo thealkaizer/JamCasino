@@ -8,6 +8,7 @@ public class SC_BulletPattern1Creation_GD : MonoBehaviour {
 
         public float delay;
         public GameObject[] bulletPatterns;
+        public GameObject[] bulletDurationBank;
         public bool canPlay = true;
         public float normalStart;
         public float hardStart;
@@ -28,7 +29,7 @@ public class SC_BulletPattern1Creation_GD : MonoBehaviour {
         stage2Complete = (kingController.maxHP / 100 * hardStart);
 
     }
-
+    //téléporte le spawner
     private IEnumerator Spawner(int time)
     {
         while (time > 0)
@@ -72,5 +73,23 @@ public class SC_BulletPattern1Creation_GD : MonoBehaviour {
             once3 = true;
             delay -= 2;
         }
-      }
+        if (canPlay == false)
+        {
+            foreach (GameObject g in bulletDurationBank)
+            {
+                ParticleSystem ps = g.GetComponent<ParticleSystem>();
+                var main = ps.main;
+                main.duration = 1.0f;
+            }
+        }
+        if (canPlay == true)
+        {
+            foreach (GameObject g in bulletDurationBank)
+            {
+                ParticleSystem ps = g.GetComponent<ParticleSystem>();
+                var main = ps.main;
+                main.duration = 8.0f;
+            }
+        }
+    }
 }
