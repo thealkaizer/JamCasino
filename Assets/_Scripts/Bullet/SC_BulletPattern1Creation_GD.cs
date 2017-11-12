@@ -5,6 +5,7 @@ using UnityEngine;
 public class SC_BulletPattern1Creation_GD : MonoBehaviour {
 
         public GameObject bulletPattern1Slot;
+        public GameObject bulletPattern2Slot;
         public bool once = false;
         public float delay;
         public float delayPermanent;
@@ -20,11 +21,10 @@ public class SC_BulletPattern1Creation_GD : MonoBehaviour {
     {
         while (time > 0)
         {
-            Debug.Log(time--);
+            time--;
             yield return new WaitForSeconds(1);
         }
-        Debug.Log("reset");
-
+        
         float xp = Random.Range(-3f, 3f);
         float yp = 0f;
         float zp = -1f;
