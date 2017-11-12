@@ -26,7 +26,10 @@ public class SC_MeteoraController : MonoBehaviour {
         return this.target != null;
     }
 
-    public void OnCollisionEnter(Collision collision) {
-        Debug.Log("COllision");
+    public void OnTriggerEnter(Collider other) {
+        if(other.CompareTag("Tile")) {
+            Object.Destroy(other.gameObject, 2f);
+        }
+        Object.Destroy(this.gameObject, 1f);
     }
 }

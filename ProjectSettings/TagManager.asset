@@ -8,6 +8,7 @@ TagManager:
   - Baby
   - Player1
   - Player2
+  - Tile
   layers:
   - Default
   - TransparentFX

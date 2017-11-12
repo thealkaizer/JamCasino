@@ -13,12 +13,12 @@ public class SC_GameManager : MonoBehaviour {
 
     public float phase1DurationInSecond;
     public float phase2DurationInSecond;
-    
-    public int m_currentPhase;
-    public int m_lastPhase;
 
     public bool isVictory;
     public bool isGameOver;
+    
+    public int m_currentPhase;
+    public int m_lastPhase;
     
 
     // ------------------------------------------------------------------------
