@@ -355,6 +355,9 @@ MonoBehaviour:
   - /Casino
   - /Casino/Events
   - /Casino/Events/Default Work Unit
+  - /Casino/States
+  - /Casino/States/Default Work Unit
+  - /Casino/States/Default Work Unit/Music
   m_lastPopulateTimePsrt1: 0
   m_lastPopulateTimePart2: 0
   autoPopulateEnabled: 1

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class SC_GameManager : MonoBehaviour {
     // ------------------------------------------------------------------------
@@ -14,6 +15,10 @@ public class SC_GameManager : MonoBehaviour {
     public SC_BulletPattern1Creation_GD bulletPhase1ManagerHand2;
     public SC_MeteoraPoper meteoraPhase2Manager;
     public SC_GameOverUI gameOverUI;
+
+    public Animator animBoss;
+    public Transform deadPoint;
+    public Vector3 deadVector;
 
     public float phase1DurationInSecond;
     public float phase2DurationInSecond;
@@ -36,18 +41,26 @@ public class SC_GameManager : MonoBehaviour {
         this.isVictory = false;
         this.isGameOver = false;
         Time.timeScale = 1.0f;
+        deadVector = new Vector3(deadPoint.position.x, deadPoint.position.y, deadPoint.position.z);
     }
     
 
 	// Update is called once per frame
 	void Update () {
+
+        if (Input.GetKeyDown(KeyCode.F1)) {
+            Application.LoadLevel(Application.loadedLevel);
+        }
+
         if (this.isGameOver) {
+            AkSoundEngine.SetState("Music", "GameOver");
             Debug.Log("GameOver: Baby just die! You suck!!");
             this.PauseControls();
             this.gameOverUI.showGameOver();
             // TODO: Call Game Over right Now!
         }
         else if(this.isVictory) {
+            kingController.gameObject.transform.DOMove(deadVector, 1f);
             Debug.Log("GG Fucker!!");
             this.PauseControls();
             Time.timeScale = 0.0f;
@@ -94,6 +107,7 @@ public class SC_GameManager : MonoBehaviour {
     private void startPhase1() {
         // TODO: Play event (Back to phase 1)
         Debug.Log("Start phase 1");
+        animBoss.SetInteger("anim", 1);
         this.bulletPhase1ManagerHand1.canPlay = true;
         this.bulletPhase1ManagerHand2.canPlay = true;
         this.meteoraPhase2Manager.isRunning = false;
@@ -102,6 +116,7 @@ public class SC_GameManager : MonoBehaviour {
     private void startPhase2() {
         // TODO: Play event cuz we just entered phase 2!!
         Debug.Log("Start phase 2");
+        animBoss.SetInteger("anim", 2);
         this.bulletPhase1ManagerHand1.canPlay = false;
         this.bulletPhase1ManagerHand2.canPlay = false;
         this.meteoraPhase2Manager.isRunning = true;
