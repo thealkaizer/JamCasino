@@ -19,8 +19,7 @@ public class SC_GameManager : MonoBehaviour {
         }
 
         if(this.babyController.isCrying) {
-            Debug.DrawLine(Vector3.zero, new Vector3(666,666,666), Color.red, 0.5f);
-            this.kingController.takeDamage(this.babyController.cryDamagePerSecond * Time.deltaTime);
+            this.kingController.takeDamage(this.babyController.getCurrentStageDamage() * Time.deltaTime);
         }
 	}
 }
