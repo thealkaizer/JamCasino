@@ -134,6 +134,11 @@ public class SC_PlayerController : MonoBehaviour {
     // ------------------------------------------------------------------------
     private void TossBaby() {
         if(this.hasBaby && this.isBabyTossCowldownReloaded()) {
+            if (gameObject.CompareTag("Player1")) {
+                AkSoundEngine.PostEvent("Play_Throw_P2", gameObject);
+            } else {
+                AkSoundEngine.PostEvent("Play_Throw_P1", gameObject);
+            }
             animPlayer.SetBool("hasBaby", false);
             GameObject emote = Instantiate(surprise, emotepoint.position, Quaternion.identity);
             emote.transform.SetParent(emotepoint);
@@ -152,6 +157,11 @@ public class SC_PlayerController : MonoBehaviour {
         if (!this.hasBaby) {
             SC_BabyController babyScript = this.baby.GetComponent<SC_BabyController>();
             if(this.CanCatchBaby(babyScript)) {
+                    if (gameObject.CompareTag("Player1")) {
+                        AkSoundEngine.PostEvent("Play_Catch_P2", gameObject);
+                    } else {
+                        AkSoundEngine.PostEvent("Play_Catch_P1", gameObject);
+                    }
                 animPlayer.SetBool("hasBaby", true);
                 // TODO: Play sound / animation
                 GameObject emote = Instantiate(surprise, emotepoint.position, Quaternion.identity);
