@@ -915,6 +915,16 @@ Prefab:
       propertyPath: SubModule.subEmitters.Array.data[0].emitter
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 198358556473659290, guid: 192ba47ea8eedd84eae5b55234b38ebb,
+        type: 2}
+      propertyPath: randomSeed
+      value: 2130608279
+      objectReference: {fileID: 0}
+    - target: {fileID: 198358556473659290, guid: 192ba47ea8eedd84eae5b55234b38ebb,
+        type: 2}
+      propertyPath: CollisionModule.collidesWith.m_Bits
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 192ba47ea8eedd84eae5b55234b38ebb, type: 2}
   m_IsPrefabParent: 0
