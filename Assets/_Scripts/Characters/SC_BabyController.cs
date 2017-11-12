@@ -94,6 +94,7 @@ public class SC_BabyController : MonoBehaviour {
     public void StartCrying() {
         if (!this.isCrying) {
             // TODO: Add feedback! (Sound, anim etc...)
+            AkSoundEngine.PostEvent("Play_Baby_cries", gameObject);
             Debug.Log("Baby start crying...");
             this.isPreparingToCry = false;
             this.isCrying = true;
@@ -103,6 +104,7 @@ public class SC_BabyController : MonoBehaviour {
 
     public void KillPoorBaby() {
         if (this.isAlive) {
+            AkSoundEngine.PostEvent("Play_Baby_hit", gameObject);
             // TODO: Stop game + all crap
             this.isAlive            = false;
             this.isPreparingToCry   = false;
@@ -128,6 +130,7 @@ public class SC_BabyController : MonoBehaviour {
     // Move methods
     // ------------------------------------------------------------------------
     public void FlyToTarget(GameObject target) {
+        
         // TODO: animationm + sound for baby that start to fly
         this.target             = target;
         this.isJumping          = true;

@@ -1,0 +1,371 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1436cd00ede9624fb97afe35c310151, type: 3}
+  m_Name: AkWwiseProjectData
+  m_EditorClassIdentifier: 
+  CurrentPluginConfig: 
+  EventWwu:
+  - PhysicalPath: Events\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    Guid: '{ACB40CF4-40FB-4736-A5B4-1BAE361EAA12}'
+    m_lastTimePsrt1: -106781184
+    m_lastTimePart2: -1999296020
+    List:
+    - Name: Play_Baby_cries
+      Path: Default Work Unit\Play_Baby_cries
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_Baby_cries
+        ObjectType: 3
+      ID: 555764551
+      Guid: 4a83e88ce6dc584b928db598d2759c82
+      maxAttenuation: 0
+    - Name: Play_Baby_hit
+      Path: Default Work Unit\Play_Baby_hit
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_Baby_hit
+        ObjectType: 3
+      ID: -1237276136
+      Guid: 9231ea7cfaac694991429782948ce85d
+      maxAttenuation: 0
+    - Name: Play_Bullets
+      Path: Default Work Unit\Play_Bullets
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_Bullets
+        ObjectType: 3
+      ID: 1073586825
+      Guid: a3e2462ff4e0674088a81628a293d963
+      maxAttenuation: 0
+    - Name: Play_Catch_P1
+      Path: Default Work Unit\Play_Catch_P1
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_Catch_P1
+        ObjectType: 3
+      ID: -1432239321
+      Guid: c31557b1f8ae8240b738fa937cd3462e
+      maxAttenuation: 0
+    - Name: Play_Catch_P2
+      Path: Default Work Unit\Play_Catch_P2
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_Catch_P2
+        ObjectType: 3
+      ID: -1432239324
+      Guid: 12c414fe87818c4db0120c14eb32527c
+      maxAttenuation: 0
+    - Name: Play_chute_bullets
+      Path: Default Work Unit\Play_chute_bullets
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_chute_bullets
+        ObjectType: 3
+      ID: -45851929
+      Guid: ff0291809fc0a240bad280b5adcc9638
+      maxAttenuation: 0
+    - Name: Play_menu
+      Path: Default Work Unit\Play_menu
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_menu
+        ObjectType: 3
+      ID: 1278378707
+      Guid: 6ab7d13c9a033c47910913b2af8bb5f4
+      maxAttenuation: 0
+    - Name: Play_meteor
+      Path: Default Work Unit\Play_meteor
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_meteor
+        ObjectType: 3
+      ID: 1121386714
+      Guid: fff84f844207994bad5f7ae0cec37846
+      maxAttenuation: 0
+    - Name: Play_Throw_P1
+      Path: Default Work Unit\Play_Throw_P1
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_Throw_P1
+        ObjectType: 3
+      ID: 1679725904
+      Guid: 0acb50a98ac843499cf25d0a246878b7
+      maxAttenuation: 0
+    - Name: Play_Throw_P2
+      Path: Default Work Unit\Play_Throw_P2
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_Throw_P2
+        ObjectType: 3
+      ID: 1679725907
+      Guid: c5008a347290254badf63cac98b4a166
+      maxAttenuation: 0
+    - Name: Stop_Baby_cries
+      Path: Default Work Unit\Stop_Baby_cries
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Stop_Baby_cries
+        ObjectType: 3
+      ID: -723231003
+      Guid: f8934e6002dc6e4b9adca97739352c05
+      maxAttenuation: 0
+  - PhysicalPath: Events\Music.wwu
+    ParentPhysicalPath: 
+    Guid: '{39B28D2B-9002-4892-8237-B4DEE071802E}'
+    m_lastTimePsrt1: -1724757248
+    m_lastTimePart2: -1999296111
+    List:
+    - Name: Music
+      Path: Music\Music
+      PathAndIcons:
+      - ElementName: Music
+        ObjectType: 12
+      - ElementName: Music
+        ObjectType: 3
+      ID: -303024426
+      Guid: 533787c9e0db1e459482e98990443694
+      maxAttenuation: 0
+  AuxBusWwu:
+  - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    Guid: '{28B7699D-963F-42DF-B931-B5C00107A1E3}'
+    m_lastTimePsrt1: 138313216
+    m_lastTimePart2: -1999296169
+    List: []
+  StateWwu:
+  - PhysicalPath: States\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    Guid: '{F601860E-0485-40B8-9049-955180DAFB77}'
+    m_lastTimePsrt1: 1955111936
+    m_lastTimePart2: -1999296114
+    List:
+    - Name: Music
+      Path: Default Work Unit\Music
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Music
+        ObjectType: 9
+      ID: -303024426
+      Guid: 33e403db4a97744ca1adde7a5b41fb4a
+      values:
+      - Game
+      - Gameover
+      - Menu
+      - None
+      ValueIcons:
+      - ElementName: Game
+        ObjectType: 8
+      - ElementName: Gameover
+        ObjectType: 8
+      - ElementName: Menu
+        ObjectType: 8
+      - ElementName: None
+        ObjectType: 8
+      valueIDs: d707df29a568daf7f0256c9bdb3ba32c
+      ValueGuids:
+      - bytes: fb2ba38703737747b7a9adabff9cec7e
+      - bytes: e5855df91670dc46bca0ad6c9343b651
+      - bytes: 3c83f6ae79dc5e47a4ad080ab325a041
+      - bytes: d95ca9b6bfdf4f41b9b88e254a097ffb
+  SwitchWwu:
+  - PhysicalPath: Switches\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    Guid: '{53D7B2AF-7B15-4B98-B4D0-5D411BFF1DCA}'
+    m_lastTimePsrt1: -1505149696
+    m_lastTimePart2: -1999296123
+    List:
+    - Name: menu
+      Path: Default Work Unit\menu
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: menu
+        ObjectType: 11
+      ID: -1687411216
+      Guid: 56b5459174d56040a75264a517c4fbd8
+      values:
+      - off
+      - on
+      ValueIcons:
+      - ElementName: off
+        ObjectType: 10
+      - ElementName: on
+        ObjectType: 10
+      valueIDs: 648a79373e177762
+      ValueGuids:
+      - bytes: 191a2f7b68e14a42be7dd9b700c9357b
+      - bytes: 0cbf1c8b8ecccc4a803567fe4927614e
+  BankWwu:
+  - PhysicalPath: SoundBanks\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    Guid: '{9AEFBA99-4364-480F-9654-320387540B57}'
+    m_lastTimePsrt1: -234691840
+    m_lastTimePart2: -1999296109
+    List:
+    - Name: Main
+      Path: Default Work Unit\Main
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Main
+        ObjectType: 7
+      ID: -1133058374
+      Guid: 998249bb5b19ec40beaca6164f9be14e
+  RtpcWwu:
+  - PhysicalPath: Game Parameters\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    Guid: '{F2175677-F5AA-4A59-AE25-1F4E98076E7A}'
+    m_lastTimePsrt1: -1056846592
+    m_lastTimePart2: -1999296022
+    List:
+    - Name: Phase2
+      Path: Default Work Unit\Phase2
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Phase2
+        ObjectType: 13
+      ID: -664938328
+      Guid: f87d7a9eb1378140a65de15d5f9b5212
+  - PhysicalPath: Game Parameters\Factory SoundSeed Air Game Syncs.wwu
+    ParentPhysicalPath: 
+    Guid: '{3B167755-FB42-458B-98BF-96F557AFB3B9}'
+    m_lastTimePsrt1: -1632258816
+    m_lastTimePart2: -1999306278
+    List:
+    - Name: SS_Air_Fear
+      Path: Factory SoundSeed Air Game Syncs\SS_Air_Fear
+      PathAndIcons:
+      - ElementName: Factory SoundSeed Air Game Syncs
+        ObjectType: 12
+      - ElementName: SS_Air_Fear
+        ObjectType: 13
+      ID: 1351367891
+      Guid: 59062ef746431c4ea1b1dab46a05101e
+    - Name: SS_Air_Freefall
+      Path: Factory SoundSeed Air Game Syncs\SS_Air_Freefall
+      PathAndIcons:
+      - ElementName: Factory SoundSeed Air Game Syncs
+        ObjectType: 12
+      - ElementName: SS_Air_Freefall
+        ObjectType: 13
+      ID: -1292209176
+      Guid: 37fe2d2f9e4f944d83d853cca39781ad
+    - Name: SS_Air_Fury
+      Path: Factory SoundSeed Air Game Syncs\SS_Air_Fury
+      PathAndIcons:
+      - ElementName: Factory SoundSeed Air Game Syncs
+        ObjectType: 12
+      - ElementName: SS_Air_Fury
+        ObjectType: 13
+      ID: 1029930033
+      Guid: dc79aea23acaba4696529986c322a87b
+    - Name: SS_Air_Month
+      Path: Factory SoundSeed Air Game Syncs\SS_Air_Month
+      PathAndIcons:
+      - ElementName: Factory SoundSeed Air Game Syncs
+        ObjectType: 12
+      - ElementName: SS_Air_Month
+        ObjectType: 13
+      ID: -1646418679
+      Guid: 45b4e209a3c47f44b3ca818a1d925ef7
+    - Name: SS_Air_Presence
+      Path: Factory SoundSeed Air Game Syncs\SS_Air_Presence
+      PathAndIcons:
+      - ElementName: Factory SoundSeed Air Game Syncs
+        ObjectType: 12
+      - ElementName: SS_Air_Presence
+        ObjectType: 13
+      ID: -447042342
+      Guid: 1a81b7e32f7b0f49b44f5fe51b468041
+    - Name: SS_Air_RPM
+      Path: Factory SoundSeed Air Game Syncs\SS_Air_RPM
+      PathAndIcons:
+      - ElementName: Factory SoundSeed Air Game Syncs
+        ObjectType: 12
+      - ElementName: SS_Air_RPM
+        ObjectType: 13
+      ID: 822163944
+      Guid: ab9048a3d5b92645a64d5290c43ef2dc
+    - Name: SS_Air_Size
+      Path: Factory SoundSeed Air Game Syncs\SS_Air_Size
+      PathAndIcons:
+      - ElementName: Factory SoundSeed Air Game Syncs
+        ObjectType: 12
+      - ElementName: SS_Air_Size
+        ObjectType: 13
+      ID: -1220270574
+      Guid: efeb291393a12e47a38c64668b494879
+    - Name: SS_Air_Storm
+      Path: Factory SoundSeed Air Game Syncs\SS_Air_Storm
+      PathAndIcons:
+      - ElementName: Factory SoundSeed Air Game Syncs
+        ObjectType: 12
+      - ElementName: SS_Air_Storm
+        ObjectType: 13
+      ID: -579304704
+      Guid: db8c3fe9d1063747acaf7cd44bbed783
+    - Name: SS_Air_TimeOfDay
+      Path: Factory SoundSeed Air Game Syncs\SS_Air_TimeOfDay
+      PathAndIcons:
+      - ElementName: Factory SoundSeed Air Game Syncs
+        ObjectType: 12
+      - ElementName: SS_Air_TimeOfDay
+        ObjectType: 13
+      ID: -1091570167
+      Guid: 2ca76f537e8c8b4cae03ef34fdadc314
+    - Name: SS_Air_Turbulence
+      Path: Factory SoundSeed Air Game Syncs\SS_Air_Turbulence
+      PathAndIcons:
+      - ElementName: Factory SoundSeed Air Game Syncs
+        ObjectType: 12
+      - ElementName: SS_Air_Turbulence
+        ObjectType: 13
+      ID: -134719478
+      Guid: 197ba8edaa73a0409f192073606db710
+  TriggerWwu:
+  - PhysicalPath: Triggers\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    Guid: '{CE2D0CCE-E8D8-4A1A-983F-4532320AF6EB}'
+    m_lastTimePsrt1: 138313216
+    m_lastTimePart2: -1999296169
+    List: []
+  ExpandedItems:
+  - /Casino
+  - /Casino/Events
+  - /Casino/Events/Default Work Unit
+  - /Casino/Events/Music
+  - /Casino/SoundBanks
+  - /Casino/SoundBanks/Default Work Unit
+  m_lastPopulateTimePsrt1: 0
+  m_lastPopulateTimePart2: 0
+  autoPopulateEnabled: 1
+  basePath: Audio\GeneratedSoundBanks
+  language: English(US)
+  defaultPoolSize: 4096
+  lowerPoolSize: 2048
+  streamingPoolSize: 1024
+  preparePoolSize: 0
+  memoryCutoffThreshold: 0.95
+  callbackManagerBufferSize: 4
