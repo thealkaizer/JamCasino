@@ -5,9 +5,6 @@ using DG.Tweening;
 
 public class SC_BabyController : MonoBehaviour {
 
-    //cryingAnim.SetInteger("crypower", X);
-
-
     // ------------------------------------------------------------------------
     // Attributes
     // ------------------------------------------------------------------------
@@ -32,6 +29,9 @@ public class SC_BabyController : MonoBehaviour {
     public float m_cryingDurationInSecond; //Time in second since baby started crying.
     public float m_timeBeforeStartCryingInSecond;
 
+    public int m_previousCryStage;
+    public int m_currentCryStage;
+
     private GameObject target;
 
     
@@ -55,9 +55,8 @@ public class SC_BabyController : MonoBehaviour {
                 this.StartCrying();
             }
         }
-        
-        Debug.Log("Stage: " + this.getCurrentCryingStage());
-        Debug.Log("Dammage: " + this.getCurrentStageDamage());
+        this.updateCurrentCryingStage();
+        this.showCryingStageUI();
 	}
 
     void FixedUpdate() {
@@ -101,6 +100,18 @@ public class SC_BabyController : MonoBehaviour {
             this.isPreparingToCry   = false;
             this.isCrying           = false;
             this.isJumping          = false;
+        }
+    }
+
+    private void updateCurrentCryingStage() {
+        this.m_previousCryStage = this.m_currentCryStage;
+        this.m_currentCryStage = this.getCurrentCryingStage();
+    }
+
+    private void showCryingStageUI() {
+        if(this.m_currentCryStage != this.m_previousCryStage) {
+            Debug.Log("Cry stage just changed from " + this.m_previousCryStage + " to " + this.m_currentCryStage);
+            cryingAnim.SetInteger("crypower", this.m_currentCryStage);
         }
     }
     
