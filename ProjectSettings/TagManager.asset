@@ -9,6 +9,7 @@ TagManager:
   - Player1
   - Player2
   - Bullet
+  - Tile
   layers:
   - Default
   - TransparentFX
@@ -45,4 +46,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: patate
+    uniqueID: 814339379
     locked: 0
