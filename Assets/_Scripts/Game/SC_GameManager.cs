@@ -74,10 +74,12 @@ public class SC_GameManager : MonoBehaviour {
     private void startPhase1() {
         // TODO: Play event (Back to phase 1)
         Debug.Log("Start phase 1");
+        this.bulletPhase1.canPlay = true;
     }
 
     private void startPhase2() {
         // TODO: Play event cuz we just entered phase 2!!
         Debug.Log("Start phase 2");
+        this.bulletPhase1.canPlay = false;
     }
 }
