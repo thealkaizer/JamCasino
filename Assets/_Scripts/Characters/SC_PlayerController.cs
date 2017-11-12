@@ -81,7 +81,6 @@ public class SC_PlayerController : MonoBehaviour {
         if(this.canMove == false) {
             // Add move toward closest movable position
             animPlayer.SetInteger("anim", 0);
-            Debug.Log("Can't move");
             this.moveTowardClosestValidPosition();
             return;
         }
