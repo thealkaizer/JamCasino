@@ -65,6 +65,7 @@ public class SC_MeteoraPoper : MonoBehaviour {
         SC_MeteoraController mc = obj.GetComponent<SC_MeteoraController>();
         mc.target = targetTransform;
         mc.fallingSpeed = this.meteoreFallingSpeed;
+        AkSoundEngine.PostEvent("Play_chute_bullets", gameObject);
     }
 
     private bool timeToLaunchAnotherMeteore() {

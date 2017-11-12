@@ -123,6 +123,7 @@ public class SC_BabyController : MonoBehaviour {
     public void FlyToTarget(GameObject target) {
         
         // TODO: animationm + sound for baby that start to fly
+         AkSoundEngine.PostEvent("Stop_Baby_cries", gameObject);
         this.target             = target;
         this.isJumping          = true;
         this.isPreparingToCry   = false;

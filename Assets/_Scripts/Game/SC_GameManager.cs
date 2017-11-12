@@ -25,6 +25,8 @@ public class SC_GameManager : MonoBehaviour {
     // Unity methods
     // ------------------------------------------------------------------------
     public void Start() {
+        AkSoundEngine.PostEvent("Music", gameObject);
+        AkSoundEngine.SetState("Music", "Game");
         this.m_currentPhase = 1;
         this.m_lastPhase = 1;
         this.isVictory = false;

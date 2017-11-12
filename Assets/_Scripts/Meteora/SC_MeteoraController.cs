@@ -28,6 +28,7 @@ public class SC_MeteoraController : MonoBehaviour {
     }
 
     public void OnTriggerEnter(Collider other) {
+        AkSoundEngine.PostEvent("Play_meteor", gameObject);
         if(other.CompareTag("Tile")) {
             Object.Destroy(other.gameObject);
             // TODO: Add lot of Animation
