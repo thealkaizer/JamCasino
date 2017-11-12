@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 23981874489143862}
   - component: {fileID: 54164995151504018}
   - component: {fileID: 65381141413216018}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: tile model white (1)
   m_TagString: Tile
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 23154043781677270}
   - component: {fileID: 54065507498038602}
   - component: {fileID: 65419313954340656}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: tile model white
   m_TagString: Tile
   m_Icon: {fileID: 0}
@@ -76,7 +76,7 @@ GameObject:
   - component: {fileID: 23047835673744778}
   - component: {fileID: 54672330341236706}
   - component: {fileID: 65975228675406918}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: tile model dark (1)
   m_TagString: Tile
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 23041605987330984}
   - component: {fileID: 54711874618000468}
   - component: {fileID: 65423060306334068}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: tile model dark
   m_TagString: Tile
   m_Icon: {fileID: 0}

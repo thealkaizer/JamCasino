@@ -9,6 +9,7 @@ TagManager:
   - Player1
   - Player2
   - Bullet
+  - Tile
   layers:
   - Default
   - TransparentFX
@@ -19,7 +20,7 @@ TagManager:
   - 
   - 
   - Parent
-  - 
+  - Ground
   - 
   - 
   - 
