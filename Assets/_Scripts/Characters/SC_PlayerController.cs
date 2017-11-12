@@ -119,16 +119,10 @@ public class SC_PlayerController : MonoBehaviour {
     }
 
     private bool CanCatchBaby(SC_BabyController baby) {
-        return !baby.HasTarget() || this.gameObject.CompareTag(baby.target.tag);
+        return !baby.HasTarget() || this.gameObject.CompareTag(baby.getTargetTag());
     }
 
     public void OnTriggerEnter(Collider other) {
-        if(other.tag == "Baby") {
-            this.catchBaby();
-        }
-    }
-
-    public void OnTriggerStay(Collider other) {
         if(other.tag == "Baby") {
             this.catchBaby();
         }

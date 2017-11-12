@@ -9,24 +9,30 @@ public class SC_BabyController : MonoBehaviour {
 
 
     // ------------------------------------------------------------------------
-    // Attributes (Note: all public for debug purpose)
+    // Attributes
     // ------------------------------------------------------------------------
-    public float cryDamagePerSecond;
+    public float cryDamagePerSecondStage1;
+    public float cryDamagePerSecondStage2;
+    public float cryDamagePerSecondStage3;
+
+    public float timeBeforeStartCryStage2;
+    public float timeBeforeStartCryStage3;
+
     public float cryLoadingTimeInSecond;
 
     public float jumpSpeed;
+    public Animator cryingAnim;
     
+    // Private attibutes (But public for debug purpose)
     public bool isAlive;
     public bool isPreparingToCry;
     public bool isCrying;
     public bool isJumping; // If not flying, means holded by player
 
-    public GameObject target;
-    
-    public Animator cryingAnim;
-    
     public float m_cryingDurationInSecond; //Time in second since baby started crying.
     public float m_timeBeforeStartCryingInSecond;
+
+    private GameObject target;
 
     
     // ------------------------------------------------------------------------
@@ -49,6 +55,9 @@ public class SC_BabyController : MonoBehaviour {
                 this.StartCrying();
             }
         }
+        
+        Debug.Log("Stage: " + this.getCurrentCryingStage());
+        Debug.Log("Dammage: " + this.getCurrentStageDamage());
 	}
 
     void FixedUpdate() {
@@ -56,7 +65,6 @@ public class SC_BabyController : MonoBehaviour {
             Transform babyBucket = this.target.GetComponent<SC_PlayerController>().babyBucket.transform;
             this.transform.position = babyBucket.position;
             this.transform.rotation = Quaternion.LookRotation(babyBucket.forward, Vector3.up);
-            //this.transform.LookAt(babyBucket.rotation);
         }
         else if(this.isJumping) {
             this.UpdateMovement();
@@ -134,5 +142,39 @@ public class SC_BabyController : MonoBehaviour {
     // ------------------------------------------------------------------------
     public bool HasTarget() {
         return this.target != null;
+    }
+
+    public string getTargetTag() {
+        return this.target.tag;
+    }
+
+    public float getCurrentStageDamage() {
+        if (!this.isCrying) {
+            return 0;
+        }
+        else if(this.m_cryingDurationInSecond <= this.timeBeforeStartCryStage2) {
+            return this.cryDamagePerSecondStage1;
+        }
+        else if(this.m_cryingDurationInSecond <= this.timeBeforeStartCryStage3) {
+            return this.cryDamagePerSecondStage2;
+        }
+        else {
+            return this.cryDamagePerSecondStage3;
+        }
+    }
+
+    public int getCurrentCryingStage() {
+        if (!this.isCrying) {
+            return 0;
+        }
+        else if(this.m_cryingDurationInSecond <= this.timeBeforeStartCryStage2) {
+            return 1;
+        }
+        else if(this.m_cryingDurationInSecond <= this.timeBeforeStartCryStage3) {
+            return 2;
+        }
+        else {
+            return 3;
+        }
     }
 }
