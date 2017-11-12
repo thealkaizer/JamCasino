@@ -29,7 +29,7 @@ public class SC_BulletPattern1Creation_GD : MonoBehaviour {
         stage2Complete = (kingController.maxHP / 100 * hardStart);
 
     }
-
+    //téléporte le spawner
     private IEnumerator Spawner(int time)
     {
         while (time > 0)
@@ -88,7 +88,7 @@ public class SC_BulletPattern1Creation_GD : MonoBehaviour {
             {
                 ParticleSystem ps = g.GetComponent<ParticleSystem>();
                 var main = ps.main;
-                main.duration = 1.0f;
+                main.duration = 8.0f;
             }
         }
     }
