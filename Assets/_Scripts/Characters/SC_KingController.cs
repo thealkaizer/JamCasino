@@ -14,6 +14,7 @@ public class SC_KingController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		this.currentHP = this.maxHP;
+        healthBarScript.health = currentHP;
         this.isAlive = true;
         this.rend = this.GetComponent<Renderer>();
         this.rend.enabled = true;
