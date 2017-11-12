@@ -36,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1029689094132714}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.0045652, y: 1.2, z: 7.6099997}
+  m_LocalPosition: {x: 2.8753247, y: 1.28, z: 7.92}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2566,7 +2566,7 @@ ParticleSystem:
     radiusScale: 0.5
     collidesWith:
       serializedVersion: 2
-      m_Bits: 4294966783
+      m_Bits: 4294966527
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
