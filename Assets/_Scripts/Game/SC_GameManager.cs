@@ -8,6 +8,7 @@ public class SC_GameManager : MonoBehaviour {
     // ------------------------------------------------------------------------
     public SC_BabyController babyController;
     public SC_KingController kingController;
+    public SC_BulletPattern1Creation_GD bulletPhase1;
 
     public float phase1DurationInSecond;
     public float phase2DurationInSecond;
