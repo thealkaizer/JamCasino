@@ -73,6 +73,7 @@ public class SC_BulletPattern1Creation_GD : MonoBehaviour {
             once3 = true;
             delay -= 2;
         }
+        //phase switching
         if (canPlay == false)
         {
             foreach (GameObject g in bulletDurationBank)
