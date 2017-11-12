@@ -46,7 +46,12 @@ public class SC_MeteoraPoper : MonoBehaviour {
     // Meteora (Like Linking park) Methods
     // ------------------------------------------------------------------------
     private Transform getRandomTransform() {
-        float randomIndex = Random.Range(0f, this.landingTargets.Length);
+        float randomIndex = 0;
+        do {
+            // This is to get only valid existing position.
+            // Dev note: game may freeze if all tiles destroyed, but this can't occure in our case of gameplay.
+            randomIndex = Random.Range(0f, this.landingTargets.Length);
+        } while (this.landingTargets[(int)randomIndex] == null);
         return this.landingTargets[(int)randomIndex];
     }
 

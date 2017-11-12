@@ -8,6 +8,7 @@ public class SC_PlayerController : MonoBehaviour {
     // ------------------------------------------------------------------------
     public float speedNormal;
     public float speedBaby;
+    public float speedGoBackToValidPosition;
 
     public Animator animPlayer;
 
@@ -37,7 +38,7 @@ public class SC_PlayerController : MonoBehaviour {
     // Unity Methods
     // ------------------------------------------------------------------------
     void Awake() {
-        this.canMove = false;
+        this.canMove = true;
         this.hasBaby = false;
         this.isWalking = false;
         this.m_effectiveSpeed = this.speedNormal;
@@ -101,7 +102,25 @@ public class SC_PlayerController : MonoBehaviour {
     }
     
     private void moveTowardClosestValidPosition() {
+        int layerMask = 1 << 9; // 9 is ground id
+        Collider[] collidersArray = Physics.OverlapSphere(this.transform.position, 5, layerMask);
 
+        int minColliderIndex = 0;
+        float minDistance = 10000f; // Just something big enough
+        for(int k = 0; k < collidersArray.Length; k++) {
+            Debug.DrawLine(this.transform.position, collidersArray[k].gameObject.transform.position, Color.blue, 0.5f);
+            float distance = Vector3.Distance(this.transform.position, collidersArray[k].gameObject.transform.position);
+            if(distance < minDistance) {
+                minColliderIndex = k;
+                minDistance = distance;
+            }
+        }
+        Debug.DrawLine(this.transform.position, collidersArray[minColliderIndex].gameObject.transform.position, Color.blue, 1f);
+
+        Vector3 dir = collidersArray[minColliderIndex].transform.position - this.transform.position;
+        dir = Vector3.Normalize(dir);
+        dir.y = 0;
+        this.transform.position += dir * this.speedGoBackToValidPosition * Time.deltaTime;
     }
 
     private void Rotate(float horizontal, float vertical) {
