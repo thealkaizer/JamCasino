@@ -5,14 +5,28 @@ using UnityEngine;
 public class SC_BulletPattern1Creation_GD : MonoBehaviour {
 
         public bool once = false;
+
         public float delay;
-        public float delayPermanent;
         public GameObject[] bulletPatterns;
+        public bool canPlay = true;
+        public float normalStart;
+        public float hardStart;
+
+        private bool once2 = false;
+        private bool once3 = false;
+        private float stage1Complete;
+        private float stage2Complete;
+        
+
+        public SC_KingController kingController;
 
 
     // Use this for initialization
     void Start () {
         once = false;
+        stage1Complete = (kingController.maxHP / 100 * normalStart);
+        stage2Complete = (kingController.maxHP / 100 * hardStart);
+
     }
 
     private IEnumerator Spawner(int time)
@@ -42,10 +56,21 @@ public class SC_BulletPattern1Creation_GD : MonoBehaviour {
     // Update is called once per frame
    void Update () {
         
-	 if (once == false)
+	 if (once == false && canPlay == true)
         {
             StartCoroutine("Spawner", delay);
             once = true;
+        }
+        if (kingController.currentHP <= stage1Complete && once2==false)
+        {
+            once2 = true;
+            delay -=2;
+        }
+        //retirer le if si trop difficile
+        if (kingController.currentHP <= stage2Complete && once3 == false)
+            {
+            once3 = true;
+            delay -= 2;
         }
       }
 }
