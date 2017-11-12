@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class SC_MeteoraController : MonoBehaviour {
     public Transform target;
@@ -27,10 +28,12 @@ public class SC_MeteoraController : MonoBehaviour {
     }
 
     public void OnTriggerEnter(Collider other) {
+        AkSoundEngine.PostEvent("Play_meteor", gameObject);
         if(other.CompareTag("Tile")) {
             Object.Destroy(other.gameObject);
             // TODO: Add lot of Animation
         }
-        Object.Destroy(this.gameObject);
+        Camera.main.transform.DOShakePosition(0.3f, 1f, 10, 90);
+        Object.Destroy(this.gameObject, 0.3f);
     }
 }

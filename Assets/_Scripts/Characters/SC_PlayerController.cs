@@ -8,6 +8,7 @@ public class SC_PlayerController : MonoBehaviour {
     // ------------------------------------------------------------------------
     public float speedNormal;
     public float speedBaby;
+    public float speedGoBackToValidPosition;
 
     public Animator animPlayer;
 
@@ -21,6 +22,8 @@ public class SC_PlayerController : MonoBehaviour {
 
     private bool hasBaby;
     private bool isWalking;
+    private bool canMove;
+    private bool isActive;
 
     private float m_effectiveSpeed;
     
@@ -36,6 +39,8 @@ public class SC_PlayerController : MonoBehaviour {
     // Unity Methods
     // ------------------------------------------------------------------------
     void Awake() {
+        this.isActive = true;
+        this.canMove = true;
         this.hasBaby = false;
         this.isWalking = false;
         this.m_effectiveSpeed = this.speedNormal;
@@ -56,15 +61,20 @@ public class SC_PlayerController : MonoBehaviour {
     }
 
     void Update() {
-        if (Input.GetButton(this.m_btn_fire1)) {
-            this.TossBaby();
+        if(this.isActive) {
+            if (Input.GetButton(this.m_btn_fire1)) {
+                this.TossBaby();
+            }
         }
     }
 	
 	void FixedUpdate() {
-        float horizontal    = Input.GetAxis(this.m_btn_horizontal);
-        float vertical      = Input.GetAxis(this.m_btn_vertical);
-        this.HandleMovement(horizontal, vertical);
+        if (this.isActive) {
+            float horizontal    = Input.GetAxis(this.m_btn_horizontal);
+            float vertical      = Input.GetAxis(this.m_btn_vertical);
+            this.HandleMovement(horizontal, vertical);
+            this.canMove = false;
+        }
 	}
 
     
@@ -74,10 +84,17 @@ public class SC_PlayerController : MonoBehaviour {
     private void HandleMovement(float horizontal, float vertical) {
         this.isWalking = false;
 
+        if(this.canMove == false) {
+            // Add move toward closest movable position
+            animPlayer.SetInteger("anim", 0);
+            this.moveTowardClosestValidPosition();
+            return;
+        }
+
         if(horizontal  != 0.0f || vertical != 0.0f) {
-            this.m_effectiveSpeed = this.hasBaby ? this.speedBaby : this.speedNormal;
-            animPlayer.SetInteger("anim", 1);
             // TODO ANIMATION: place walking animation
+            animPlayer.SetInteger("anim", 1);
+            this.m_effectiveSpeed = this.hasBaby ? this.speedBaby : this.speedNormal;
             this.isWalking = true;
             this.Rotate(horizontal, vertical);
             Vector3 movement = new Vector3(horizontal, 0.0f, vertical);
@@ -87,6 +104,28 @@ public class SC_PlayerController : MonoBehaviour {
         } else {
             animPlayer.SetInteger("anim", 0);
         }
+    }
+    
+    private void moveTowardClosestValidPosition() {
+        int layerMask = 1 << 9; // 9 is ground id
+        Collider[] collidersArray = Physics.OverlapSphere(this.transform.position, 5, layerMask);
+
+        int minColliderIndex = 0;
+        float minDistance = 10000f; // Just something big enough
+        for(int k = 0; k < collidersArray.Length; k++) {
+            Debug.DrawLine(this.transform.position, collidersArray[k].gameObject.transform.position, Color.blue, 0.5f);
+            float distance = Vector3.Distance(this.transform.position, collidersArray[k].gameObject.transform.position);
+            if(distance < minDistance) {
+                minColliderIndex = k;
+                minDistance = distance;
+            }
+        }
+        Debug.DrawLine(this.transform.position, collidersArray[minColliderIndex].gameObject.transform.position, Color.blue, 1f);
+
+        Vector3 dir = collidersArray[minColliderIndex].transform.position - this.transform.position;
+        dir = Vector3.Normalize(dir);
+        dir.y = 0;
+        this.transform.position += dir * this.speedGoBackToValidPosition * Time.deltaTime;
     }
 
     private void Rotate(float horizontal, float vertical) {
@@ -100,6 +139,12 @@ public class SC_PlayerController : MonoBehaviour {
     // ------------------------------------------------------------------------
     private void TossBaby() {
         if(this.hasBaby && this.isBabyTossCowldownReloaded()) {
+            if (gameObject.CompareTag("Player1")) {
+                AkSoundEngine.PostEvent("Play_Throw_P2", gameObject);
+            } else {
+                AkSoundEngine.PostEvent("Play_Throw_P1", gameObject);
+            }
+            animPlayer.SetBool("hasBaby", false);
             GameObject emote = Instantiate(surprise, emotepoint.position, Quaternion.identity);
             emote.transform.SetParent(emotepoint);
             // TODO ANIMATION: Play animation
@@ -114,10 +159,16 @@ public class SC_PlayerController : MonoBehaviour {
     }
 
     private void catchBaby() {
-        // TODO: Play sound / animation
         if (!this.hasBaby) {
             SC_BabyController babyScript = this.baby.GetComponent<SC_BabyController>();
             if(this.CanCatchBaby(babyScript)) {
+                    if (gameObject.CompareTag("Player1")) {
+                        AkSoundEngine.PostEvent("Play_Catch_P2", gameObject);
+                    } else {
+                        AkSoundEngine.PostEvent("Play_Catch_P1", gameObject);
+                    }
+                animPlayer.SetBool("hasBaby", true);
+                // TODO: Play sound / animation
                 GameObject emote = Instantiate(surprise, emotepoint.position, Quaternion.identity);
                 emote.transform.SetParent(emotepoint);
                 Debug.Log("Player " + this.gameObject.tag + " catch baby");
@@ -141,14 +192,32 @@ public class SC_PlayerController : MonoBehaviour {
     // Unity triggers Methods
     // ------------------------------------------------------------------------
     public void OnTriggerEnter(Collider other) {
-        if(other.tag == "Baby") {
+        if(other.CompareTag("Baby")) {
             this.catchBaby();
+        }
+        if (other.CompareTag("Tile")) {
+            this.canMove = true;
         }
     }
 
     public void OnTriggerStay(Collider other) {
-        if(other.tag == "Baby") {
+        if(other.CompareTag("Baby")) {
             this.catchBaby();
         }
+        if (other.CompareTag("Tile")) {
+            this.canMove = true;
+        }
+    }
+
+    
+    // ------------------------------------------------------------------------
+    // Controls management Methods
+    // ------------------------------------------------------------------------
+    public void enableAllControls() {
+        this.isActive = true;
+    }
+
+    public void disableAllControls() {
+        this.isActive = false;
     }
 }

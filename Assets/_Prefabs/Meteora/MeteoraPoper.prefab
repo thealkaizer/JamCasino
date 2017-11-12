@@ -146,10 +146,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
   meteoraLauncherBarrel: {fileID: 4526431803295278}
-  meteoraPrefab: {fileID: 1199719961297802, guid: 69cc6f45dad238348ad047a5ee48dec7,
+  meteoraPrefab: {fileID: 1205852034238630, guid: a5386ee45bc495041851be44c68e4e14,
     type: 2}
   meteoreFallingSpeed: 7
-  numberMeteoraPerPhase: 6
+  numberMeteoraPerPhase: 3
   timeBetweenTwoShots: 1.5

@@ -22,12 +22,17 @@ public class TitleScreen : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+
+		Time.timeScale = 1.0f;
+		AkSoundEngine.PostEvent("Music", gameObject);
+		AkSoundEngine.SetState("Music", "Menu");
 	}
 	
 	// Update is called once per frame
 	void Update () {
+
 		if (Input.GetKeyDown(KeyCode.Alpha1)) {
+			Debug.Log("input 1");
 			if (p1lock != true && launching != true) {
 				if(p1ready == true) {
 					StartCoroutine(Empty(1));
@@ -38,6 +43,7 @@ public class TitleScreen : MonoBehaviour {
 		}
 
 		if (Input.GetKeyDown(KeyCode.Alpha2)) {
+			Debug.Log("input 2");
 			if (p2lock != true && launching != true) {
 				if(p2ready == true) {
 					StartCoroutine(Empty(2));
@@ -72,20 +78,23 @@ public class TitleScreen : MonoBehaviour {
 		}
 
 		//DO STUFF
+		AkSoundEngine.SetSwitch("menu", "on", gameObject);
+		AkSoundEngine.PostEvent("Play_Menu", gameObject);
+
+
 		icon.transform.localScale = new Vector3(1f, 1f, 1f);
 		fill.transform.localScale = new Vector3(1f, 1f, 1f);
 		yield return new WaitForEndOfFrame();
 		Tween filltween = icon.transform.DOPunchScale(punch, 0.5f, 10, 1);
 		fill.transform.DOPunchScale(punch, 0.5f, 10, 1);
-		for (int x = 0; x < 100; x++) {
+		for (int x = 0; x <= 100; x++) {
 			fill.fillAmount = x / 10f;
-			//yield return new WaitForEndOfFrame();
 		}
-
+		Debug.Log("TEST");
 		yield return filltween.WaitForCompletion();
 		yield return new WaitForEndOfFrame();
-		icon.transform.localScale = new Vector3(1f, 1f, 1f);
-		fill.transform.localScale = new Vector3(1f, 1f, 1f);
+		//icon.transform.localScale = new Vector3(1f, 1f, 1f);
+		//fill.transform.localScale = new Vector3(1f, 1f, 1f);
 
 
 		if (number == 1) {
@@ -124,6 +133,10 @@ public class TitleScreen : MonoBehaviour {
 		}
 
 		//DO STUFF
+
+		AkSoundEngine.SetSwitch("menu", "off", gameObject);
+		AkSoundEngine.PostEvent("Play_Menu", gameObject);
+
 		icon.transform.localScale = new Vector3(1f, 1f, 1f);
 		fill.transform.localScale = new Vector3(1f, 1f, 1f);
 		yield return new WaitForEndOfFrame();
@@ -155,6 +168,9 @@ public class TitleScreen : MonoBehaviour {
 			Tween toBlack = black.DOFade(1f, 3f);
 			yield return toBlack.WaitForCompletion();
 		//load level
+			AkSoundEngine.SetState("Music", "Game");
+			Application.LoadLevel("MainScene");
+
 		}
 
 	}
