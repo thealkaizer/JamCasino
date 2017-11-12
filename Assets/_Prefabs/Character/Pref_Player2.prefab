@@ -133,7 +133,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1210391691542364}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.17, y: 1.37, z: 3.02}
+  m_LocalPosition: {x: 1.83, y: 1, z: -4.59}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4797206637905052}
@@ -330,14 +330,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedNormal: 7
   speedBaby: 2
-  hasBaby: 0
   emotepoint: {fileID: 4718669770134800}
   player2: {fileID: 1636703247805810, guid: f93d266f6ff2fa14b8e3c3c1a057b731, type: 2}
   baby: {fileID: 0}
   groundRing: {fileID: 1984711260166440}
   babyBucket: {fileID: 1485842735111130}
   surprise: {fileID: 1844840028851688, guid: b372b062f81d45c48b33bd5d9d794069, type: 2}
-  isWalking: 0
+  cowldownBabyTossInSecond: 1
 --- !u!114 &114925579697116492
 MonoBehaviour:
   m_ObjectHideFlags: 1

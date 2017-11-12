@@ -8,7 +8,6 @@ public class SC_PlayerController : MonoBehaviour {
     // ------------------------------------------------------------------------
     public float speedNormal;
     public float speedBaby;
-    public bool hasBaby;
 
     public Transform emotepoint;
 
@@ -18,13 +17,17 @@ public class SC_PlayerController : MonoBehaviour {
     public GameObject babyBucket;
     public GameObject surprise;
 
-    public bool isWalking;
+    private bool hasBaby;
+    private bool isWalking;
 
     private float m_effectiveSpeed;
     
     private string m_btn_fire1;
     private string m_btn_vertical;
     private string m_btn_horizontal;
+
+    public float cowldownBabyTossInSecond;
+    private float m_lastUseBabyToss;
 
     
     // ------------------------------------------------------------------------
@@ -34,6 +37,7 @@ public class SC_PlayerController : MonoBehaviour {
         this.hasBaby = false;
         this.isWalking = false;
         this.m_effectiveSpeed = this.speedNormal;
+        this.m_lastUseBabyToss = -10; // Just a low number, so that can toss now
     }
 
     void Start() {
@@ -90,12 +94,13 @@ public class SC_PlayerController : MonoBehaviour {
     // Baby Methods
     // ------------------------------------------------------------------------
     private void TossBaby() {
-        if(this.hasBaby) {
+        if(this.hasBaby && this.isBabyTossCowldownReloaded()) {
             GameObject emote = Instantiate(surprise, emotepoint.position, Quaternion.identity);
             emote.transform.SetParent(emotepoint);
             // TODO ANIMATION: Play animation
             // TODO SOUND: Play sound
             Debug.Log("PLayer " + this.gameObject.tag + " toss the baby");
+            this.m_lastUseBabyToss = Time.time;
             this.hasBaby = false;
             this.groundRing.SetActive(false);
             SC_BabyController babyScript = this.baby.GetComponent<SC_BabyController>();
@@ -122,6 +127,14 @@ public class SC_PlayerController : MonoBehaviour {
         return !baby.HasTarget() || this.gameObject.CompareTag(baby.getTargetTag());
     }
 
+    private bool isBabyTossCowldownReloaded() {
+        return (Time.time - this.m_lastUseBabyToss) >= this.cowldownBabyTossInSecond;
+    }
+
+    
+    // ------------------------------------------------------------------------
+    // Unity triggers Methods
+    // ------------------------------------------------------------------------
     public void OnTriggerEnter(Collider other) {
         if(other.tag == "Baby") {
             this.catchBaby();
