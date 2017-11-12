@@ -141,6 +141,14 @@ MonoBehaviour:
   bulletPatterns:
   - {fileID: 1029689094132714, guid: 55b4c794992214444aa46eb6c68a3fe4, type: 2}
   - {fileID: 1479894373190318, guid: 192ba47ea8eedd84eae5b55234b38ebb, type: 2}
+  bulletDurationBank:
+  - {fileID: 1029689094132714, guid: 55b4c794992214444aa46eb6c68a3fe4, type: 2}
+  - {fileID: 1479894373190318, guid: 192ba47ea8eedd84eae5b55234b38ebb, type: 2}
+  - {fileID: 1689764807217788, guid: 192ba47ea8eedd84eae5b55234b38ebb, type: 2}
+  - {fileID: 1061226361149654, guid: 192ba47ea8eedd84eae5b55234b38ebb, type: 2}
+  - {fileID: 1985203231530104, guid: 192ba47ea8eedd84eae5b55234b38ebb, type: 2}
+  - {fileID: 1061379685251044, guid: 192ba47ea8eedd84eae5b55234b38ebb, type: 2}
+  - {fileID: 1478490737957250, guid: 192ba47ea8eedd84eae5b55234b38ebb, type: 2}
   canPlay: 1
   normalStart: 66
   hardStart: 33
