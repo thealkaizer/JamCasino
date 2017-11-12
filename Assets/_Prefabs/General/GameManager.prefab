@@ -53,3 +53,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   babyController: {fileID: 0}
   kingController: {fileID: 0}
+  bulletPhase1: {fileID: 0}
+  phase1DurationInSecond: 15
+  phase2DurationInSecond: 10
+  m_currentPhase: 0
+  m_lastPhase: 0
