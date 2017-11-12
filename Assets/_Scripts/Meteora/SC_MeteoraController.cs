@@ -25,4 +25,8 @@ public class SC_MeteoraController : MonoBehaviour {
     private bool hasTarget() {
         return this.target != null;
     }
+
+    public void OnCollisionEnter(Collision collision) {
+        Debug.Log("COllision");
+    }
 }

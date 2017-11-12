@@ -5955,25 +5955,6 @@ Prefab:
       propertyPath: landingTargets.Array.data[63]
       value: 
       objectReference: {fileID: 118142743}
-    - target: {fileID: 114280312108549092, guid: 3bcd972ae7f10bf43801e385c3703fea,
-        type: 2}
-      propertyPath: numberMeteoraPerPhase
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 114280312108549092, guid: 3bcd972ae7f10bf43801e385c3703fea,
-        type: 2}
-      propertyPath: meteoreFallingSpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4526431803295278, guid: 3bcd972ae7f10bf43801e385c3703fea, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 21.18
-      objectReference: {fileID: 0}
-    - target: {fileID: 114280312108549092, guid: 3bcd972ae7f10bf43801e385c3703fea,
-        type: 2}
-      propertyPath: timeBetweenTwoShots
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3bcd972ae7f10bf43801e385c3703fea, type: 2}
   m_IsPrefabParent: 0
