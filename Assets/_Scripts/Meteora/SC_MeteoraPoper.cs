@@ -53,6 +53,7 @@ public class SC_MeteoraPoper : MonoBehaviour {
         Transform targetTransform = this.getRandomTransform();
         Debug.DrawLine(this.meteoraLauncherBarrel.position, targetTransform.position, Color.yellow, 2);
         this.m_timeAtLastLaunch = Time.time;
+        this.m_currentNbLaunchedMeteora++;
         // TODO
     }
 

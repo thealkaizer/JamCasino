@@ -8,8 +8,8 @@ public class SC_GameManager : MonoBehaviour {
     // ------------------------------------------------------------------------
     public SC_BabyController babyController;
     public SC_KingController kingController;
-    public SC_BulletPattern1Creation_GD bulletPhase1Controller;
-    public SC_MeteoraController meteoraPhase2Controller;
+    public SC_BulletPattern1Creation_GD bulletPhase1Manager;
+    public SC_MeteoraPoper meteoraPhase2Manager;
 
     public float phase1DurationInSecond;
     public float phase2DurationInSecond;
@@ -82,14 +82,14 @@ public class SC_GameManager : MonoBehaviour {
     private void startPhase1() {
         // TODO: Play event (Back to phase 1)
         Debug.Log("Start phase 1");
-        this.bulletPhase1Controller.canPlay = true;
-        this.meteoraPhase2Controller.isRunning = false;
+        this.bulletPhase1Manager.canPlay = true;
+        this.meteoraPhase2Manager.isRunning = false;
     }
 
     private void startPhase2() {
         // TODO: Play event cuz we just entered phase 2!!
         Debug.Log("Start phase 2");
-        this.bulletPhase1Controller.canPlay = false;
-        this.meteoraPhase2Controller.isRunning = true;
+        this.bulletPhase1Manager.canPlay = false;
+        this.meteoraPhase2Manager.isRunning = true;
     }
 }
