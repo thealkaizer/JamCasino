@@ -28,8 +28,9 @@ public class SC_MeteoraController : MonoBehaviour {
 
     public void OnTriggerEnter(Collider other) {
         if(other.CompareTag("Tile")) {
-            Object.Destroy(other.gameObject, 2f);
+            Object.Destroy(other.gameObject);
+            // TODO: Add lot of Animation
         }
-        Object.Destroy(this.gameObject, 1f);
+        Object.Destroy(this.gameObject);
     }
 }
