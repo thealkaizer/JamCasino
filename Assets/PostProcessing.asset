@@ -297,9 +297,9 @@ MonoBehaviour:
     m_Settings:
       mode: 0
       color: {r: 0, g: 0, b: 0, a: 1}
-      center: {x: 0.5, y: 0.55}
-      intensity: 0.518
-      smoothness: 0.484
+      center: {x: 0.5, y: 0.5}
+      intensity: 0.555
+      smoothness: 0.605
       roundness: 0.631
       mask: {fileID: 0}
       opacity: 1
