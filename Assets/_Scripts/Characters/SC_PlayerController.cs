@@ -9,6 +9,8 @@ public class SC_PlayerController : MonoBehaviour {
     public float speedNormal;
     public float speedBaby;
 
+    public Animator animPlayer;
+
     public Transform emotepoint;
 
     public GameObject player2; // Ref to the other player.
@@ -74,6 +76,7 @@ public class SC_PlayerController : MonoBehaviour {
 
         if(horizontal  != 0.0f || vertical != 0.0f) {
             this.m_effectiveSpeed = this.hasBaby ? this.speedBaby : this.speedNormal;
+            animPlayer.SetInteger("anim", 1);
             // TODO ANIMATION: place walking animation
             this.isWalking = true;
             this.Rotate(horizontal, vertical);
@@ -81,6 +84,8 @@ public class SC_PlayerController : MonoBehaviour {
             movement *= Time.deltaTime * m_effectiveSpeed;
             transform.position +=  movement;
             Debug.DrawRay(transform.position, movement, Color.blue, 1.0f);
+        } else {
+            animPlayer.SetInteger("anim", 0);
         }
     }
 
