@@ -52,7 +52,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1936324544454680}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4, y: 1.2, z: 8.61}
+  m_LocalPosition: {x: -4, y: 1.2, z: 8.61}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4570143770218742}
@@ -136,9 +136,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8c7290e36ae2c349b3a8812dabdd70a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPattern1Slot: {fileID: 1029689094132714, guid: 55b4c794992214444aa46eb6c68a3fe4,
-    type: 2}
-  bulletPattern2Slot: {fileID: 0}
   once: 0
-  delay: 4.5
+  delay: 8
   delayPermanent: 6
+  bulletPatterns:
+  - {fileID: 1029689094132714, guid: 55b4c794992214444aa46eb6c68a3fe4, type: 2}
+  - {fileID: 1479894373190318, guid: 192ba47ea8eedd84eae5b55234b38ebb, type: 2}

@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class SC_BulletPattern1Creation_GD : MonoBehaviour {
 
-        public GameObject bulletPattern1Slot;
-        public GameObject bulletPattern2Slot;
         public bool once = false;
         public float delay;
         public float delayPermanent;
-
+        public GameObject[] bulletPatterns;
 
 
     // Use this for initialization
@@ -30,9 +28,14 @@ public class SC_BulletPattern1Creation_GD : MonoBehaviour {
         float zp = -1f;
         transform.localPosition = new Vector3(xp, yp, zp);
 
-        bulletPattern1Slot.transform.position = this.transform.position;
-        bulletPattern1Slot.transform.rotation = this.transform.rotation;
-        Instantiate(bulletPattern1Slot);
+        for(int k = 0; k < bulletPatterns.Length; k++) {
+            bulletPatterns[k].transform.position = this.transform.position;
+            bulletPatterns[k].transform.rotation = this.transform.rotation;
+        }
+        
+        int randomIndice = Random.Range(0, bulletPatterns.Length);
+        GameObject o = this.bulletPatterns[randomIndice];
+        Instantiate (o);
         once = false;
     }
 
