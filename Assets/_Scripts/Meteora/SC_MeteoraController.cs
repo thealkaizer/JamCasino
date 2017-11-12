@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class SC_MeteoraController : MonoBehaviour {
     public Transform target;
@@ -31,6 +32,7 @@ public class SC_MeteoraController : MonoBehaviour {
             Object.Destroy(other.gameObject);
             // TODO: Add lot of Animation
         }
-        Object.Destroy(this.gameObject);
+        Camera.main.transform.DOShakePosition(0.3f, 3f, 10, 90f);
+        Object.Destroy(this.gameObject, 0.3f);
     }
 }
