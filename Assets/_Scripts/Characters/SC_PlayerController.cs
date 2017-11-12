@@ -21,6 +21,7 @@ public class SC_PlayerController : MonoBehaviour {
 
     private bool hasBaby;
     private bool isWalking;
+    private bool canMove;
 
     private float m_effectiveSpeed;
     
@@ -36,6 +37,7 @@ public class SC_PlayerController : MonoBehaviour {
     // Unity Methods
     // ------------------------------------------------------------------------
     void Awake() {
+        this.canMove = false;
         this.hasBaby = false;
         this.isWalking = false;
         this.m_effectiveSpeed = this.speedNormal;
@@ -65,6 +67,7 @@ public class SC_PlayerController : MonoBehaviour {
         float horizontal    = Input.GetAxis(this.m_btn_horizontal);
         float vertical      = Input.GetAxis(this.m_btn_vertical);
         this.HandleMovement(horizontal, vertical);
+        this.canMove = false;
 	}
 
     
@@ -74,10 +77,18 @@ public class SC_PlayerController : MonoBehaviour {
     private void HandleMovement(float horizontal, float vertical) {
         this.isWalking = false;
 
+        if(this.canMove == false) {
+            // Add move toward closest movable position
+            //animPlayer.SetInteger("anim", 0);
+            Debug.Log("Can't move");
+            this.moveTowardClosestValidPosition();
+            return;
+        }
+
         if(horizontal  != 0.0f || vertical != 0.0f) {
-            this.m_effectiveSpeed = this.hasBaby ? this.speedBaby : this.speedNormal;
-            animPlayer.SetInteger("anim", 1);
             // TODO ANIMATION: place walking animation
+            //animPlayer.SetInteger("anim", 1);
+            this.m_effectiveSpeed = this.hasBaby ? this.speedBaby : this.speedNormal;
             this.isWalking = true;
             this.Rotate(horizontal, vertical);
             Vector3 movement = new Vector3(horizontal, 0.0f, vertical);
@@ -85,8 +96,12 @@ public class SC_PlayerController : MonoBehaviour {
             transform.position +=  movement;
             Debug.DrawRay(transform.position, movement, Color.blue, 1.0f);
         } else {
-            animPlayer.SetInteger("anim", 0);
+            //animPlayer.SetInteger("anim", 0);
         }
+    }
+    
+    private void moveTowardClosestValidPosition() {
+
     }
 
     private void Rotate(float horizontal, float vertical) {
@@ -114,10 +129,10 @@ public class SC_PlayerController : MonoBehaviour {
     }
 
     private void catchBaby() {
-        // TODO: Play sound / animation
         if (!this.hasBaby) {
             SC_BabyController babyScript = this.baby.GetComponent<SC_BabyController>();
             if(this.CanCatchBaby(babyScript)) {
+                // TODO: Play sound / animation
                 GameObject emote = Instantiate(surprise, emotepoint.position, Quaternion.identity);
                 emote.transform.SetParent(emotepoint);
                 Debug.Log("Player " + this.gameObject.tag + " catch baby");
@@ -141,14 +156,20 @@ public class SC_PlayerController : MonoBehaviour {
     // Unity triggers Methods
     // ------------------------------------------------------------------------
     public void OnTriggerEnter(Collider other) {
-        if(other.tag == "Baby") {
+        if(other.CompareTag("Baby")) {
             this.catchBaby();
+        }
+        if (other.CompareTag("Tile")) {
+            this.canMove = true;
         }
     }
 
     public void OnTriggerStay(Collider other) {
-        if(other.tag == "Baby") {
+        if(other.CompareTag("Baby")) {
             this.catchBaby();
+        }
+        if (other.CompareTag("Tile")) {
+            this.canMove = true;
         }
     }
 }
