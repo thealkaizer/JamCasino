@@ -16,8 +16,8 @@ MonoBehaviour:
   - PhysicalPath: Events\Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{ACB40CF4-40FB-4736-A5B4-1BAE361EAA12}'
-    m_lastTimePsrt1: -1505149696
-    m_lastTimePart2: -1999296123
+    m_lastTimePsrt1: -106781184
+    m_lastTimePart2: -1999296020
     List:
     - Name: Play_Baby_cries
       Path: Default Work Unit\Play_Baby_cries
@@ -39,6 +39,16 @@ MonoBehaviour:
       ID: -1237276136
       Guid: 9231ea7cfaac694991429782948ce85d
       maxAttenuation: 0
+    - Name: Play_Bullets
+      Path: Default Work Unit\Play_Bullets
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_Bullets
+        ObjectType: 3
+      ID: 1073586825
+      Guid: a3e2462ff4e0674088a81628a293d963
+      maxAttenuation: 0
     - Name: Play_Catch_P1
       Path: Default Work Unit\Play_Catch_P1
       PathAndIcons:
@@ -59,6 +69,16 @@ MonoBehaviour:
       ID: -1432239324
       Guid: 12c414fe87818c4db0120c14eb32527c
       maxAttenuation: 0
+    - Name: Play_chute_bullets
+      Path: Default Work Unit\Play_chute_bullets
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_chute_bullets
+        ObjectType: 3
+      ID: -45851929
+      Guid: ff0291809fc0a240bad280b5adcc9638
+      maxAttenuation: 0
     - Name: Play_menu
       Path: Default Work Unit\Play_menu
       PathAndIcons:
@@ -68,6 +88,16 @@ MonoBehaviour:
         ObjectType: 3
       ID: 1278378707
       Guid: 6ab7d13c9a033c47910913b2af8bb5f4
+      maxAttenuation: 0
+    - Name: Play_meteor
+      Path: Default Work Unit\Play_meteor
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_meteor
+        ObjectType: 3
+      ID: 1121386714
+      Guid: fff84f844207994bad5f7ae0cec37846
       maxAttenuation: 0
     - Name: Play_Throw_P1
       Path: Default Work Unit\Play_Throw_P1
@@ -88,6 +118,16 @@ MonoBehaviour:
         ObjectType: 3
       ID: 1679725907
       Guid: c5008a347290254badf63cac98b4a166
+      maxAttenuation: 0
+    - Name: Stop_Baby_cries
+      Path: Default Work Unit\Stop_Baby_cries
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Stop_Baby_cries
+        ObjectType: 3
+      ID: -723231003
+      Guid: f8934e6002dc6e4b9adca97739352c05
       maxAttenuation: 0
   - PhysicalPath: Events\Music.wwu
     ParentPhysicalPath: 
@@ -180,8 +220,8 @@ MonoBehaviour:
   - PhysicalPath: SoundBanks\Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{9AEFBA99-4364-480F-9654-320387540B57}'
-    m_lastTimePsrt1: -1505149696
-    m_lastTimePart2: -1999296123
+    m_lastTimePsrt1: -234691840
+    m_lastTimePart2: -1999296109
     List:
     - Name: Main
       Path: Default Work Unit\Main
@@ -196,9 +236,18 @@ MonoBehaviour:
   - PhysicalPath: Game Parameters\Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{F2175677-F5AA-4A59-AE25-1F4E98076E7A}'
-    m_lastTimePsrt1: 138313216
-    m_lastTimePart2: -1999296169
-    List: []
+    m_lastTimePsrt1: -1056846592
+    m_lastTimePart2: -1999296022
+    List:
+    - Name: Phase2
+      Path: Default Work Unit\Phase2
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Phase2
+        ObjectType: 13
+      ID: -664938328
+      Guid: f87d7a9eb1378140a65de15d5f9b5212
   - PhysicalPath: Game Parameters\Factory SoundSeed Air Game Syncs.wwu
     ParentPhysicalPath: 
     Guid: '{3B167755-FB42-458B-98BF-96F557AFB3B9}'
@@ -306,6 +355,9 @@ MonoBehaviour:
   - /Casino
   - /Casino/Events
   - /Casino/Events/Default Work Unit
+  - /Casino/Events/Music
+  - /Casino/SoundBanks
+  - /Casino/SoundBanks/Default Work Unit
   m_lastPopulateTimePsrt1: 0
   m_lastPopulateTimePart2: 0
   autoPopulateEnabled: 1

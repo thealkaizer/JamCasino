@@ -29,6 +29,7 @@ public class SC_GameManager : MonoBehaviour {
         this.m_lastPhase = 1;
         this.isVictory = false;
         this.isGameOver = false;
+        Time.timeScale = 1.0f;
     }
     
 
