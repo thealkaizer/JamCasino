@@ -2102,14 +2102,34 @@ Prefab:
       objectReference: {fileID: 1578361911}
     - target: {fileID: 114057192542366284, guid: 78c345eb5675b5a4880ddff97786205e,
         type: 2}
-      propertyPath: bulletPhase1Manager
+      propertyPath: playerControllerP1
+      value: 
+      objectReference: {fileID: 1205401804}
+    - target: {fileID: 114057192542366284, guid: 78c345eb5675b5a4880ddff97786205e,
+        type: 2}
+      propertyPath: playerControllerP2
+      value: 
+      objectReference: {fileID: 1596843627}
+    - target: {fileID: 114057192542366284, guid: 78c345eb5675b5a4880ddff97786205e,
+        type: 2}
+      propertyPath: bulletPhase1ManagerHand1
       value: 
       objectReference: {fileID: 983658124}
+    - target: {fileID: 114057192542366284, guid: 78c345eb5675b5a4880ddff97786205e,
+        type: 2}
+      propertyPath: bulletPhase1ManagerHand2
+      value: 
+      objectReference: {fileID: 1617096023}
     - target: {fileID: 114057192542366284, guid: 78c345eb5675b5a4880ddff97786205e,
         type: 2}
       propertyPath: meteoraPhase2Manager
       value: 
       objectReference: {fileID: 1144176832}
+    - target: {fileID: 114057192542366284, guid: 78c345eb5675b5a4880ddff97786205e,
+        type: 2}
+      propertyPath: gameOverUI
+      value: 
+      objectReference: {fileID: 1884516314}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 78c345eb5675b5a4880ddff97786205e, type: 2}
   m_IsPrefabParent: 0
@@ -2133,7 +2153,7 @@ Prefab:
     - target: {fileID: 224743054161124386, guid: d71fe88a8045ed640aca6eb8e3e519a6,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 331.5
+      value: 369.5
       objectReference: {fileID: 0}
     - target: {fileID: 224743054161124386, guid: d71fe88a8045ed640aca6eb8e3e519a6,
         type: 2}
@@ -4122,6 +4142,12 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: a8c40576f4a7df04a8ee773c984489c8, type: 3}
   m_PrefabInternal: {fileID: 462230790}
+--- !u!114 &1205401804 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114941119647730208, guid: f93d266f6ff2fa14b8e3c3c1a057b731,
+    type: 2}
+  m_PrefabInternal: {fileID: 1505431230}
+  m_Script: {fileID: 11500000, guid: e5aaf47de57bcfe4cb401ca6ec7d1de3, type: 3}
 --- !u!1001 &1205417248
 Prefab:
   m_ObjectHideFlags: 0
@@ -5583,11 +5609,23 @@ Transform:
   m_PrefabParentObject: {fileID: 4031427156749548, guid: 33a1c29386595de41a6d4df8141bae36,
     type: 2}
   m_PrefabInternal: {fileID: 220225082}
+--- !u!114 &1596843627 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114279769980307428, guid: 50dbc0039cf439b4d907c6438b189186,
+    type: 2}
+  m_PrefabInternal: {fileID: 1976576377}
+  m_Script: {fileID: 11500000, guid: e5aaf47de57bcfe4cb401ca6ec7d1de3, type: 3}
 --- !u!4 &1616793470 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4169611892471846, guid: 19c68b7eb15cd674a87791e77886f2db,
     type: 2}
   m_PrefabInternal: {fileID: 1629914856}
+--- !u!114 &1617096023 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114027971294165288, guid: d4596f26ded54a74392bee4a709457f2,
+    type: 2}
+  m_PrefabInternal: {fileID: 667091655}
+  m_Script: {fileID: 11500000, guid: b8c7290e36ae2c349b3a8812dabdd70a, type: 3}
 --- !u!1 &1620148483 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1467304676493776, guid: d1550b80a51a18d43a8cc22e63279349,
@@ -6353,6 +6391,12 @@ Transform:
   m_PrefabParentObject: {fileID: 4840364052930402, guid: 66fabbdd85885c942a1c184542de892e,
     type: 2}
   m_PrefabInternal: {fileID: 1397449348}
+--- !u!114 &1884516314 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114455724698397808, guid: d71fe88a8045ed640aca6eb8e3e519a6,
+    type: 2}
+  m_PrefabInternal: {fileID: 458846444}
+  m_Script: {fileID: 11500000, guid: 0c9ae622ae7ecd844bbd0dd20cffbf55, type: 3}
 --- !u!4 &1884938381 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4169611892471846, guid: 19c68b7eb15cd674a87791e77886f2db,
@@ -6863,7 +6907,7 @@ Prefab:
     - target: {fileID: 224474159631689574, guid: e02a2a52a52c5db45a1992906e265ce9,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 331.5
+      value: 369.5
       objectReference: {fileID: 0}
     - target: {fileID: 224474159631689574, guid: e02a2a52a52c5db45a1992906e265ce9,
         type: 2}

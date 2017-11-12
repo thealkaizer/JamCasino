@@ -33,16 +33,22 @@ public class SC_BabyController : MonoBehaviour {
 
     private GameObject target;
 
+    public bool isActive;
+
     
     // ------------------------------------------------------------------------
     // Unity methods
     // ------------------------------------------------------------------------
     void Awake() {
+        this.isActive = true;
         this.target = null;
     }
 	
 	// Update is called once per frame
 	void Update() {
+        if(!this.isActive) {
+            return;
+        }
         if(this.isCrying) {
             // TODO: Play cry animation / sound --> (Cry ongoing)
             this.m_cryingDurationInSecond += Time.deltaTime;
@@ -59,6 +65,9 @@ public class SC_BabyController : MonoBehaviour {
 	}
 
     void FixedUpdate() {
+        if(!this.isActive) {
+            return;
+        }
         if (this.HasTarget() && !this.isJumping) {
             Transform babyBucket = this.target.GetComponent<SC_PlayerController>().babyBucket.transform;
             this.transform.position = babyBucket.position;
@@ -186,5 +195,17 @@ public class SC_BabyController : MonoBehaviour {
         else {
             return 3;
         }
+    }
+
+    
+    // ------------------------------------------------------------------------
+    // Controls management Methods
+    // ------------------------------------------------------------------------
+    public void enableAllControls() {
+        this.isActive = true;
+    }
+
+    public void disableAllControls() {
+        this.isActive = false;
     }
 }

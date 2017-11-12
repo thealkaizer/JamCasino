@@ -4,26 +4,22 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 
-public class GameOverScript : MonoBehaviour {
-
+public class SC_GameOverUI : MonoBehaviour {
 	public Image top;
 	public Image bot;
 	public Image bBlack, tBlack;
 
-	public RectTransform toprect, botrect;
+	private RectTransform toprect, botrect;
 
 	// Use this for initialization
 	void Start () {
 		toprect = top.GetComponent<RectTransform>();
 		botrect = bot.GetComponent<RectTransform>();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		if (Input.GetKeyDown(KeyCode.Space)) {
-			StartCoroutine("SlideGameOver");
-		}
-	}
+
+    public void showGameOver() {
+	    StartCoroutine("SlideGameOver");
+    }
 
 	IEnumerator SlideGameOver() {
 		top.DOFade(1f, 1f);

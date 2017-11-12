@@ -23,6 +23,7 @@ public class SC_PlayerController : MonoBehaviour {
     private bool hasBaby;
     private bool isWalking;
     private bool canMove;
+    private bool isActive;
 
     private float m_effectiveSpeed;
     
@@ -38,6 +39,7 @@ public class SC_PlayerController : MonoBehaviour {
     // Unity Methods
     // ------------------------------------------------------------------------
     void Awake() {
+        this.isActive = true;
         this.canMove = true;
         this.hasBaby = false;
         this.isWalking = false;
@@ -59,16 +61,20 @@ public class SC_PlayerController : MonoBehaviour {
     }
 
     void Update() {
-        if (Input.GetButton(this.m_btn_fire1)) {
-            this.TossBaby();
+        if(this.isActive) {
+            if (Input.GetButton(this.m_btn_fire1)) {
+                this.TossBaby();
+            }
         }
     }
 	
 	void FixedUpdate() {
-        float horizontal    = Input.GetAxis(this.m_btn_horizontal);
-        float vertical      = Input.GetAxis(this.m_btn_vertical);
-        this.HandleMovement(horizontal, vertical);
-        this.canMove = false;
+        if (this.isActive) {
+            float horizontal    = Input.GetAxis(this.m_btn_horizontal);
+            float vertical      = Input.GetAxis(this.m_btn_vertical);
+            this.HandleMovement(horizontal, vertical);
+            this.canMove = false;
+        }
 	}
 
     
@@ -191,5 +197,17 @@ public class SC_PlayerController : MonoBehaviour {
         if (other.CompareTag("Tile")) {
             this.canMove = true;
         }
+    }
+
+    
+    // ------------------------------------------------------------------------
+    // Controls management Methods
+    // ------------------------------------------------------------------------
+    public void enableAllControls() {
+        this.isActive = true;
+    }
+
+    public void disableAllControls() {
+        this.isActive = false;
     }
 }
