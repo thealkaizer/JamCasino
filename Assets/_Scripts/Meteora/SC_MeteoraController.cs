@@ -32,7 +32,7 @@ public class SC_MeteoraController : MonoBehaviour {
             Object.Destroy(other.gameObject);
             // TODO: Add lot of Animation
         }
-        Camera.main.transform.DOShakePosition(0.3f, 3f, 10, 90f);
+        Camera.main.transform.DOShakePosition(0.3f, 1f, 10, 90);
         Object.Destroy(this.gameObject, 0.3f);
     }
 }

@@ -79,7 +79,7 @@ public class SC_PlayerController : MonoBehaviour {
 
         if(this.canMove == false) {
             // Add move toward closest movable position
-            //animPlayer.SetInteger("anim", 0);
+            animPlayer.SetInteger("anim", 0);
             Debug.Log("Can't move");
             this.moveTowardClosestValidPosition();
             return;
@@ -87,7 +87,7 @@ public class SC_PlayerController : MonoBehaviour {
 
         if(horizontal  != 0.0f || vertical != 0.0f) {
             // TODO ANIMATION: place walking animation
-            //animPlayer.SetInteger("anim", 1);
+            animPlayer.SetInteger("anim", 1);
             this.m_effectiveSpeed = this.hasBaby ? this.speedBaby : this.speedNormal;
             this.isWalking = true;
             this.Rotate(horizontal, vertical);
@@ -96,7 +96,7 @@ public class SC_PlayerController : MonoBehaviour {
             transform.position +=  movement;
             Debug.DrawRay(transform.position, movement, Color.blue, 1.0f);
         } else {
-            //animPlayer.SetInteger("anim", 0);
+            animPlayer.SetInteger("anim", 0);
         }
     }
     
@@ -115,6 +115,7 @@ public class SC_PlayerController : MonoBehaviour {
     // ------------------------------------------------------------------------
     private void TossBaby() {
         if(this.hasBaby && this.isBabyTossCowldownReloaded()) {
+            animPlayer.SetBool("hasBaby", false);
             GameObject emote = Instantiate(surprise, emotepoint.position, Quaternion.identity);
             emote.transform.SetParent(emotepoint);
             // TODO ANIMATION: Play animation
@@ -132,6 +133,7 @@ public class SC_PlayerController : MonoBehaviour {
         if (!this.hasBaby) {
             SC_BabyController babyScript = this.baby.GetComponent<SC_BabyController>();
             if(this.CanCatchBaby(babyScript)) {
+                animPlayer.SetBool("hasBaby", true);
                 // TODO: Play sound / animation
                 GameObject emote = Instantiate(surprise, emotepoint.position, Quaternion.identity);
                 emote.transform.SetParent(emotepoint);
