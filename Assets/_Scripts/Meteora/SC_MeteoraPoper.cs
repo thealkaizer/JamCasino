@@ -10,10 +10,11 @@ public class SC_MeteoraPoper : MonoBehaviour {
 
     public Transform[] landingTargets;
     public Transform meteoraLauncherBarrel;
-
+    public GameObject meteoraPrefab;
+    
+    public float meteoreFallingSpeed;
     public int numberMeteoraPerPhase;
     public float timeBetweenTwoShots;
-    public float meteoreFallingDurationInSecond;
 
     private int m_currentNbLaunchedMeteora;
     private float m_timeAtLastLaunch;
@@ -54,7 +55,11 @@ public class SC_MeteoraPoper : MonoBehaviour {
         Debug.DrawLine(this.meteoraLauncherBarrel.position, targetTransform.position, Color.yellow, 2);
         this.m_timeAtLastLaunch = Time.time;
         this.m_currentNbLaunchedMeteora++;
-        // TODO
+        
+        GameObject obj = Instantiate(this.meteoraPrefab, this.meteoraLauncherBarrel.position, Quaternion.identity) as GameObject;
+        SC_MeteoraController mc = obj.GetComponent<SC_MeteoraController>();
+        mc.target = targetTransform;
+        mc.fallingSpeed = this.meteoreFallingSpeed;
     }
 
     private bool timeToLaunchAnotherMeteore() {
