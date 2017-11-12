@@ -75,9 +75,9 @@ public class SC_PlayerController : MonoBehaviour {
         this.isWalking = false;
 
         if(horizontal  != 0.0f || vertical != 0.0f) {
-            this.m_effectiveSpeed = this.hasBaby ? this.speedBaby : this.speedNormal;
-            animPlayer.SetInteger("anim", 1);
             // TODO ANIMATION: place walking animation
+            //animPlayer.SetInteger("anim", 1);
+            this.m_effectiveSpeed = this.hasBaby ? this.speedBaby : this.speedNormal;
             this.isWalking = true;
             this.Rotate(horizontal, vertical);
             Vector3 movement = new Vector3(horizontal, 0.0f, vertical);
@@ -85,7 +85,7 @@ public class SC_PlayerController : MonoBehaviour {
             transform.position +=  movement;
             Debug.DrawRay(transform.position, movement, Color.blue, 1.0f);
         } else {
-            animPlayer.SetInteger("anim", 0);
+            //animPlayer.SetInteger("anim", 0);
         }
     }
 
@@ -141,13 +141,13 @@ public class SC_PlayerController : MonoBehaviour {
     // Unity triggers Methods
     // ------------------------------------------------------------------------
     public void OnTriggerEnter(Collider other) {
-        if(other.tag == "Baby") {
+        if(other.CompareTag("Baby")) {
             this.catchBaby();
         }
     }
 
     public void OnTriggerStay(Collider other) {
-        if(other.tag == "Baby") {
+        if(other.CompareTag("Baby")) {
             this.catchBaby();
         }
     }
