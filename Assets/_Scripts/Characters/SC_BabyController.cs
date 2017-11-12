@@ -20,17 +20,16 @@ public class SC_BabyController : MonoBehaviour {
     public float jumpSpeed;
     public Animator cryingAnim;
     
-    // Private attibutes (But public for debug purpose)
     public bool isAlive;
     public bool isPreparingToCry;
     public bool isCrying;
     public bool isJumping; // If not flying, means holded by player
 
-    public float m_cryingDurationInSecond; //Time in second since baby started crying.
-    public float m_timeBeforeStartCryingInSecond;
+    private float m_cryingDurationInSecond; //Time in second since baby started crying.
+    private float m_timeBeforeStartCryingInSecond;
 
-    public int m_previousCryStage;
-    public int m_currentCryStage;
+    private int m_previousCryStage;
+    private int m_currentCryStage;
 
     private GameObject target;
 
