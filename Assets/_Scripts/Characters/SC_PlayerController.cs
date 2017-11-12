@@ -127,4 +127,10 @@ public class SC_PlayerController : MonoBehaviour {
             this.catchBaby();
         }
     }
+
+    public void OnTriggerStay(Collider other) {
+        if(other.tag == "Baby") {
+            this.catchBaby();
+        }
+    }
 }
