@@ -53,8 +53,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   babyController: {fileID: 0}
   kingController: {fileID: 0}
-  bulletPhase1Manager: {fileID: 0}
+  playerControllerP1: {fileID: 0}
+  playerControllerP2: {fileID: 0}
+  bulletPhase1ManagerHand1: {fileID: 0}
+  bulletPhase1ManagerHand2: {fileID: 0}
   meteoraPhase2Manager: {fileID: 0}
+  gameOverUI: {fileID: 0}
   phase1DurationInSecond: 11
   phase2DurationInSecond: 9
   isVictory: 0
